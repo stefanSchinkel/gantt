@@ -1,103 +1,155 @@
 #!/usr/bin/env python
 """
-see: http://matplotlib.org/examples/lines_bars_and_markers/barh_demo.html to get
-started
+Gantt.py is a simple class to render Gantt charts, as commonly used in
 """
 # setup pyplot w/ tex support
 import numpy as np
 import matplotlib.pyplot as plt
-
-
-font = {'family' : 'normal',
-        'weight' : 'bold',
-        'size'   : 20}
-
-
-from matplotlib import rc, rcParams
-
+from matplotlib import rc
 rc('text', usetex=True)
-rcParams.update({'font.size': 10})
-
 
 from operator import sub
 
-# load data
-from sample import packages, start, end, mileStones, title, xlabel, xticks
-
-def loadData():
+class Gantt(object):
+    """Gantt
+    Class to redner a simple Gantt chart, with optional milestones
     """
-    """
-    pass
+    def __init__(self, dataFile='sample.py'):
+        """ Instantiation
 
+        Create a new Gantt using the data in the file provided or the sample
+        data that came along with the script
 
-def addMilestones(milestones, yPos):
-    """Add milestones to GANTT chart.
-    The milestones have to provided in dict with the packages they belong
-    to as keys and a list the (discreet) due date for the milestones as values
+        :arg str dataFile: file holding Gantt data
+        """
+        self.dataFile = dataFile
+        self._loadData()
+        self._procData()
 
-    :arg dict milestones: dict with milestones
-    :arg list yPos: positions on y scale
-    """
+    def _loadData(self):
+        """ Load data from dataFile or use sample data. We just import the plain
+        python data structures. This is lazy but serves the purpose here.
+        """
+        import imp
+        from os import path
+        with open(self.dataFile) as fp:
+            data = imp.load_source('data', path.dirname(self.dataFile), fp)
 
-    x = []
-    y = []
-    for key in milestones.iterkeys():
-        for value in milestones[key]:
-            y += [yPos[packages.index(key)]]
-            x += [value]
+        # # must-haves
+        self.packages   = data.packages
+        self.timing     = data.timing
+        self.title      = data.title
 
-    plt.scatter(x, y, s=40, marker="D" ,
-                color="yellow", edgecolor="black", zorder=3)
+        # optionals
+        try:
+            self.milestones = data.milestones
+        except:
+            self.milestones = None
+        try:
+            self.xlabel = data.xlabel
+        except:
+            self.xlabel = None
+        try:
+            self.xticks = data.xticks
+        except:
+            self.xticks = None
 
-""" main()
-"""
-def main():
-    # process data
-    nPackages = len(packages)
-    durations = map(sub, end, start)
-    # reverse y-ordering so pkg 1 is at top
-    yPos = np.arange(nPackages, 0, -1)
+    def _procData(self):
+        """ Process data to have all values needed for plotting
+        """
+        # parameters for bars
+        self.nPackages = len(self.packages)
+        self.start = [None] * self.nPackages
+        self.end = [None] * self.nPackages
 
-    # init figure
-    fig, ax = plt.subplots()
-    ax.yaxis.grid(False)
-    ax.xaxis.grid(True)
+        for key, vals in self.timing.iteritems():
+            idx = self.packages.index(key)
+            self.start[idx], self.end[idx]  = map(int, vals.split(','))
 
-    # format x-a
-    plt.tick_params(
-        axis='both',    # format x and y
-        which='both',   # major and minor ticks affected
-        bottom='on',    # bottom edge ticks are on
-        top='off',      # top, left and right edge ticks are off
-        left='off',
-        right='off')
+        self.durations = map(sub, self.end, self.start)
+        self.yPos = np.arange(self.nPackages, 0, -1)
 
-    # plot barchart
-    plt.barh(yPos, durations,
-            left=start,
-            align='center',
-            height=.5,
-            alpha=.9,
-            color='#004579')
+    def _addMilestones(self, milestones):
+        """Add milestones to GANTT chart.
+        The milestones have to provided in dict with the packages they belong
+        to as keys and a list the (discreet) due date for the milestones as values
 
-    # label x and y ticks
-    plt.yticks(yPos, packages)
-    plt.xticks(xticks, map(str,xticks))
+        :arg dict milestones: dict with milestones
+        """
+        x = []
+        y = []
+        for key in milestones.iterkeys():
+            for value in milestones[key]:
+                y += [self.yPos[self.packages.index(key)]]
+                x += [value]
 
-    # milestones
-    addMilestones(mileStones, yPos)
+        plt.scatter(x, y, s=40, marker="D" ,
+                    color="yellow", edgecolor="black", zorder=3)
 
-    # tighten axis but give a little room from bar height
-    plt.xlim(0, max(end))
-    plt.ylim(0.5, nPackages+.5)
+    def format(self):
+        """ Format various aspect of the plot, such as labels,ticks, BBox
+        :todo: Refactor to use a settings object
+        """
+        # format axis
+        plt.tick_params(
+            axis='both',    # format x and y
+            which='both',   # major and minor ticks affected
+            bottom='on',    # bottom edge ticks are on
+            top='off',      # top, left and right edge ticks are off
+            left='off',
+            right='off')
 
-    # add text
-    plt.xlabel(xlabel)
-    plt.title(title)
+        # tighten axis but give a little room from bar height
+        plt.xlim(0, max(self.end))
+        plt.ylim(0.5, self.nPackages+.5)
 
-    plt.show()
+        # add title and package names
+        plt.yticks(self.yPos, self.packages)
+        plt.title(self.title)
 
-    # plt.savefig('GANTT.png', bbox_inches='tight')
+        if self.xlabel:
+            plt.xlabel(self.xlabel)
+
+        if self.xticks:
+            plt.xticks(self.xticks, map(str, self.xticks))
+
+    def render(self):
+        """ Prepare data for plotting
+        """
+
+        # init figure
+        self.fig, self.ax = plt.subplots()
+        self.ax.yaxis.grid(False)
+        self.ax.xaxis.grid(True)
+
+        # render barchart
+        plt.barh(self.yPos, self.durations,
+                left= self.start,
+                align='center',
+                height=.5,
+                alpha=.9,
+                color='#004579')
+
+        # optionals
+        if self.milestones:
+            self._addMilestones(self.milestones)
+
+        # format plot
+        self.format()
+
+    def show(self):
+        """ Show the plot
+        """
+        plt.show()
+
+    def save(self, saveFile='img/GANTT.png'):
+        """ Save the plot to a file. It defaults to `img/GANTT.png`.
+
+        :arg str saveFile: file to save to
+        """
+        plt.savefig(saveFile, bbox_inches='tight')
 
 if __name__ == '__main__':
-    main()
+    g = Gantt()
+    g.render()
+    g.show()
