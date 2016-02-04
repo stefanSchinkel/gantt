@@ -12,13 +12,13 @@ from operator import sub
 
 class Gantt(object):
     """Gantt
-    Class to redner a simple Gantt chart, with optional milestones
+    Class to render a simple Gantt chart, with optional milestones
     """
     def __init__(self, dataFile='sample.py'):
         """ Instantiation
 
-        Create a new Gantt using the data in the file provided or the sample
-        data that came along with the script
+        Create a new Gantt using the data in the file provided
+        or the sample data that came along with the script
 
         :arg str dataFile: file holding Gantt data
         """
@@ -64,22 +64,21 @@ class Gantt(object):
 
         for key, vals in self.timing.iteritems():
             idx = self.packages.index(key)
-            self.start[idx], self.end[idx]  = map(int, vals.split(','))
+            self.start[idx], self.end[idx] = map(int, vals.split(','))
 
         self.durations = map(sub, self.end, self.start)
         self.yPos = np.arange(self.nPackages, 0, -1)
 
-    def _addMilestones(self, milestones):
+    def addMilestones(self):
         """Add milestones to GANTT chart.
         The milestones have to provided in dict with the packages they belong
         to as keys and a list the (discreet) due date for the milestones as values
 
-        :arg dict milestones: dict with milestones
         """
         x = []
         y = []
-        for key in milestones.iterkeys():
-            for value in milestones[key]:
+        for key in self.milestones.iterkeys():
+            for value in self.milestones[key]:
                 y += [self.yPos[self.packages.index(key)]]
                 x += [value]
 
@@ -132,17 +131,19 @@ class Gantt(object):
 
         # optionals
         if self.milestones:
-            self._addMilestones(self.milestones)
+            self.addMilestones()
 
         # format plot
         self.format()
 
-    def show(self):
+    @staticmethod
+    def show():
         """ Show the plot
         """
         plt.show()
 
-    def save(self, saveFile='img/GANTT.png'):
+    @staticmethod
+    def save(saveFile='img/GANTT.png'):
         """ Save the plot to a file. It defaults to `img/GANTT.png`.
 
         :arg str saveFile: file to save to
