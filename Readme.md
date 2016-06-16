@@ -11,11 +11,8 @@ Long story short: I don't know how to [excel](https://xkcd.com/559/).
 
 All data is provided in plain python.
 ```python
-# a set called package holding the name of workpackages
-# it has to set is need to maintain the ordering (see todos)
-packages = ("A", "B", "C")
-
 # dictionary called timing with package name as key and start/end as values
+# this provides the basic structure. Start and end value are discreet
 timing = {
     "A" : "0,3",
     "B" : "2,4",
@@ -42,7 +39,7 @@ See sample.py for the data used to produce the image below.
  - matplotlib
 
 ### ToDo
- - nicer data structure
+ - nicer data structure (JSON most likely)
  - add parameter object/dict for more control over colors etc
 
 ###Screenshot
