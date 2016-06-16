@@ -36,8 +36,15 @@ class Gantt(object):
             data = imp.load_source('data', path.dirname(self.dataFile), fp)
 
         # # must-haves
-        self.packages   = data.packages
+
         self.timing     = data.timing
+        self.packages   = []
+        for key in self.timing:
+            self.packages.append(key)
+        self.packages.sort()
+        print self.packages
+        print type(self.packages)
+        exit
         self.title      = data.title
 
         # optionals

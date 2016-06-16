@@ -1,10 +1,4 @@
 # label of packages
-packages = (
-    "WP 1-1", "WP 1-2",
-    "WP 2-1", "WP 2-2", "WP 2-3", "WP 2-4",
-    "WP 3-1", "WP 3-2", "WP 3-3",
-)
-
 timing = {
     "WP 1-1": "0, 2",
     "WP 1-2": "2, 4",
