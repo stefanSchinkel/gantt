@@ -42,9 +42,6 @@ class Gantt(object):
         for key in self.timing:
             self.packages.append(key)
         self.packages.sort()
-        print self.packages
-        print type(self.packages)
-        exit
         self.title      = data.title
 
         # optionals
