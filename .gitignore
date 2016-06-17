@@ -1,3 +1,4 @@
-c
 *pyc
 *.html
+.coverage
+tests/cover
