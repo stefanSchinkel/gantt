@@ -37,13 +37,13 @@ class Gantt(object):
         with open(self.dataFile) as fh:
             data = json.load(fh)
 
-        # # must-haves
-        self.timing     = data['timing']
-        self.packages   = []
-        for key in self.timing:
-            self.packages.append(key)
-        self.packages.sort()
-        self.title      = data['title']
+        # must-haves
+        self.title    = data['title']
+        self.packages = data['packages']
+        self.labels   = []
+        for key in self.packages:
+            self.labels.append(key)
+        self.labels.sort()
 
         # optionals
         try:
@@ -63,12 +63,12 @@ class Gantt(object):
         """ Process data to have all values needed for plotting
         """
         # parameters for bars
-        self.nPackages = len(self.packages)
+        self.nPackages = len(self.labels)
         self.start = [None] * self.nPackages
         self.end = [None] * self.nPackages
 
-        for key, vals in self.timing.iteritems():
-            idx = self.packages.index(key)
+        for key, vals in self.packages.iteritems():
+            idx = self.labels.index(key)
             self.start[idx], self.end[idx] = map(int, vals.split(','))
 
         self.durations = map(sub, self.end, self.start)
@@ -84,7 +84,7 @@ class Gantt(object):
         y = []
         for key in self.milestones.iterkeys():
             for value in self.milestones[key]:
-                y += [self.yPos[self.packages.index(key)]]
+                y += [self.yPos[self.labels.index(key)]]
                 x += [value]
 
         plt.scatter(x, y, s=40, marker="D" ,
@@ -108,7 +108,7 @@ class Gantt(object):
         plt.ylim(0.5, self.nPackages+.5)
 
         # add title and package names
-        plt.yticks(self.yPos, self.packages)
+        plt.yticks(self.yPos, self.labels)
         plt.title(self.title)
 
         if self.xlabel:
@@ -157,7 +157,5 @@ class Gantt(object):
 
 if __name__ == '__main__':
     g = Gantt('sample.json')
-    print g.timing
-
     g.render()
     g.show()
