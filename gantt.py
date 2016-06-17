@@ -2,6 +2,8 @@
 """
 Gantt.py is a simple class to render Gantt charts, as commonly used in
 """
+
+import json
 # setup pyplot w/ tex support
 import numpy as np
 import matplotlib.pyplot as plt
@@ -14,7 +16,7 @@ class Gantt(object):
     """Gantt
     Class to render a simple Gantt chart, with optional milestones
     """
-    def __init__(self, dataFile='sample.py'):
+    def __init__(self, dataFile):
         """ Instantiation
 
         Create a new Gantt using the data in the file provided
@@ -30,31 +32,30 @@ class Gantt(object):
         """ Load data from dataFile or use sample data. We just import the plain
         python data structures. This is lazy but serves the purpose here.
         """
-        import imp
-        from os import path
-        with open(self.dataFile) as fp:
-            data = imp.load_source('data', path.dirname(self.dataFile), fp)
+
+        # load data file
+        with open(self.dataFile) as fh:
+            data = json.load(fh)
 
         # # must-haves
-
-        self.timing     = data.timing
+        self.timing     = data['timing']
         self.packages   = []
         for key in self.timing:
             self.packages.append(key)
         self.packages.sort()
-        self.title      = data.title
+        self.title      = data['title']
 
         # optionals
         try:
-            self.milestones = data.milestones
+            self.milestones = data['milestones']
         except:
             self.milestones = None
         try:
-            self.xlabel = data.xlabel
+            self.xlabel = data['xlabel']
         except:
             self.xlabel = None
         try:
-            self.xticks = data.xticks
+            self.xticks = data['xticks']
         except:
             self.xticks = None
 
@@ -126,10 +127,10 @@ class Gantt(object):
         self.ax.xaxis.grid(True)
 
         # render barchart
-        plt.barh(self.yPos, self.durations,
+        self.barlist = plt.barh(self.yPos, self.durations,
                 left= self.start,
                 align='center',
-                height=.5,
+                height=.4,
                 alpha=.9,
                 color='#004579')
 
@@ -155,6 +156,8 @@ class Gantt(object):
         plt.savefig(saveFile, bbox_inches='tight')
 
 if __name__ == '__main__':
-    g = Gantt()
+    g = Gantt('sample.json')
+    print g.timing
+
     g.render()
     g.show()
