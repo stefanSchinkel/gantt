@@ -12,6 +12,20 @@ rc('text', usetex=True)
 
 from operator import sub
 
+# class Package(object):
+#     """Encapsulation of a work package
+
+#     A work package **must** have a label, start and end.
+#     Optionally it may contain milestones.
+#     :arg str label: package name
+#     :arg int start: start time (discreet)
+#     :arg int end: end time (discreet)
+#     """
+#     def __init__(self, label, start, end):
+#         self.label = label
+#         self.start = start
+#         self.end = end
+
 class Gantt(object):
     """Gantt
     Class to render a simple Gantt chart, with optional milestones
@@ -87,7 +101,7 @@ class Gantt(object):
                 y += [self.yPos[self.labels.index(key)]]
                 x += [value]
 
-        plt.scatter(x, y, s=40, marker="D" ,
+        plt.scatter(x, y, s=50, marker="D" ,
                     color="yellow", edgecolor="black", zorder=3)
 
     def format(self):
@@ -130,9 +144,9 @@ class Gantt(object):
         self.barlist = plt.barh(self.yPos, self.durations,
                 left= self.start,
                 align='center',
-                height=.4,
+                height=.3,
                 alpha=.9,
-                color='#004579')
+                color='#32AEE0')
 
         # optionals
         if self.milestones:
@@ -158,4 +172,8 @@ class Gantt(object):
 if __name__ == '__main__':
     g = Gantt('sample.json')
     g.render()
+    for bar in [0,1] :
+        g.barlist[bar].set_color('#F1C231')
+    for bar in range(2,6):
+        g.barlist[bar].set_color('#32E07A')
     g.show()
