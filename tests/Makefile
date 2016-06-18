@@ -1,4 +1,4 @@
-NOSE :=/usr/bin/nosetests
+NOSE :=/usr/bin/nose
 
 clean:
 	rm *.pyc
