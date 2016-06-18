@@ -6,6 +6,7 @@ python:
 install:
   - pip install numpy
   - pip install matplotlib
+  - pip install nosetest
 # command to run tests
 script:
-- make test
+- cd tests && make test
