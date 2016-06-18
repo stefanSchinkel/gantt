@@ -9,4 +9,4 @@ install:
   - pip install nose
 # command to run tests
 script:
-- cd tests && make test
+- cd tests && nosetests *.py
