@@ -8,4 +8,4 @@ install:
   - pip install matplotlib
 # command to run tests
 script:
-- cd tests && make test
+- make test
