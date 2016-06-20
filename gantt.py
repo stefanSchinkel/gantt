@@ -12,19 +12,24 @@ rc('text', usetex=True)
 
 from operator import sub
 
-# class Package(object):
-#     """Encapsulation of a work package
+class Package(object):
+    """Encapsulation of a work package
 
-#     A work package **must** have a label, start and end.
-#     Optionally it may contain milestones.
-#     :arg str label: package name
-#     :arg int start: start time (discreet)
-#     :arg int end: end time (discreet)
-#     """
-#     def __init__(self, label, start, end):
-#         self.label = label
-#         self.start = start
-#         self.end = end
+    A work package **must** have a label, start and end.
+    Optionally it may contain milestones.
+    :arg str label: package name
+    :arg int start: start time (discreet)
+    :arg int end: end time (discreet)
+    """
+    def __init__(self, label, start, end):
+
+        if start > end:
+            raise ValueError("Cannot end before started")
+
+        self.label = label
+        self.start = start
+        self.end = end
+
 
 class Gantt(object):
     """Gantt
