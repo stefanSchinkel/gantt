@@ -12,8 +12,21 @@ from os import path
 sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
 
 from gantt import Gantt
+from gantt import Package as WP
 # file we use
 BASICS = './basics.json'
+
+class TestsPackage(unittest.TestCase):
+    """Basic tests for package class
+    """
+
+    def testArg(self):
+        """ Parameter handling
+        """
+        # start must be after begin
+        self.assertRaises(ValueError, WP, "Foo", 3, 2)
+
+
 
 class TestsBasics(unittest.TestCase):
     """ Tests to ensure the data ends up in the right places
