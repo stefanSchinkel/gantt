@@ -1,0 +1,12 @@
+language: python
+python:
+  - "2.7"
+
+# we need numpy and mpl
+install:
+  - pip install numpy
+  - pip install matplotlib
+  - pip install nose
+# command to run tests
+script:
+- cd tests && nosetests *.py
