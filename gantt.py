@@ -164,11 +164,11 @@ class Gantt(object):
 
         # render barchart
         self.barlist = plt.barh(self.yPos, self.durations,
-                left= self.start,
-                align='center',
-                height=.3,
-                alpha=.9,
-                color='#32AEE0')
+                                left=self.start,
+                                align='center',
+                                height=.3,
+                                alpha=.9,
+                                color='#32AEE0')
 
         # optionals
         if self.milestones:
@@ -197,8 +197,8 @@ if __name__ == '__main__':
     # g.show()
     g = Gantt('sample.json')
     g.render()
-    for bar in [0,1] :
+    for bar in [0, 1]:
         g.barlist[bar].set_color('#F1C231')
-    for bar in range(2,6):
+    for bar in range(2, 6):
         g.barlist[bar].set_color('#32E07A')
     g.show()
