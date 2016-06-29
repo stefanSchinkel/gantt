@@ -8,7 +8,7 @@ import json
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import rc
-rc('text', usetex=True)
+# rc('text', usetex=True)
 
 from operator import sub
 
@@ -21,7 +21,7 @@ class Package(object):
     :arg int start: start time (discreet)
     :arg int end: end time (discreet)
     """
-    def __init__(self, label, start, end):
+    def __init__(self, label, start, end, color="#32AEE0"):
 
         if start > end:
             raise ValueError("Cannot end before started")
@@ -57,25 +57,28 @@ class Gantt(object):
             data = json.load(fh)
 
         # must-haves
-        self.title    = data['title']
+        self.title = data['title']
         self.packages = data['packages']
-        self.labels   = []
-        for key in self.packages:
+        self.labels = []
+        for key in self.packages.keys():
             self.labels.append(key)
         self.labels.sort()
 
         # optionals
-        try:
-            self.milestones = data['milestones']
-        except:
-            self.milestones = None
+        self.milestones = {}
+        for key, vals in self.packages.iteritems():
+            try:
+                self.milestones[key] = vals['milestones']
+            except KeyError:
+                pass
+
         try:
             self.xlabel = data['xlabel']
-        except:
+        except KeyError:
             self.xlabel = None
         try:
             self.xticks = data['xticks']
-        except:
+        except KeyError:
             self.xticks = None
 
     def _procData(self):
@@ -88,7 +91,8 @@ class Gantt(object):
 
         for key, vals in self.packages.iteritems():
             idx = self.labels.index(key)
-            self.start[idx], self.end[idx] = map(int, vals.split(','))
+            self.start[idx] = vals['start']
+            self.end[idx] = vals['end']
 
         self.durations = map(sub, self.end, self.start)
         self.yPos = np.arange(self.nPackages, 0, -1)
@@ -99,6 +103,7 @@ class Gantt(object):
         to as keys and a list the (discreet) due date for the milestones as values
 
         """
+
         x = []
         y = []
         for key in self.milestones.iterkeys():
@@ -177,8 +182,11 @@ class Gantt(object):
 if __name__ == '__main__':
     g = Gantt('sample.json')
     g.render()
-    for bar in [0,1] :
-        g.barlist[bar].set_color('#F1C231')
-    for bar in range(2,6):
-        g.barlist[bar].set_color('#32E07A')
     g.show()
+    # g = Gantt('sample.json')
+    # g.render()
+    # for bar in [0,1] :
+    #     g.barlist[bar].set_color('#F1C231')
+    # for bar in range(2,6):
+    #     g.barlist[bar].set_color('#32E07A')
+    # g.show()
