@@ -8,27 +8,38 @@ import json
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import rc
-# rc('text', usetex=True)
+rc('text', usetex=True)
 
 from operator import sub
 
 class Package(object):
     """Encapsulation of a work package
 
-    A work package **must** have a label, start and end.
-    Optionally it may contain milestones.
-    :arg str label: package name
-    :arg int start: start time (discreet)
-    :arg int end: end time (discreet)
-    """
-    def __init__(self, label, start, end, color="#32AEE0"):
+    A work package is instantiate from a dictionary. It **has to have**
+    a label, astart and an end. Optionally it may contain milestones
+    and a color
 
-        if start > end:
+    :arg str pkg: dictionary w/ package data name
+    """
+    def __init__(self, pkg):
+
+        DEFCOLOR = "#32AEE0"
+        self.label = pkg['label']
+        self.start = pkg['start']
+        self.end = pkg['end']
+
+        if self.start > self.end:
             raise ValueError("Cannot end before started")
 
-        self.label = label
-        self.start = start
-        self.end = end
+        try:
+            self.milestones = pkg['milestones']
+        except KeyError:
+            pass
+
+        try:
+            self.color = pkg['color']
+        except KeyError:
+            self.color = DEFCOLOR
 
 
 class Gantt(object):
@@ -60,15 +71,16 @@ class Gantt(object):
         self.title = data['title']
         self.packages = data['packages']
         self.labels = []
-        for key in self.packages.keys():
-            self.labels.append(key)
+
+        for package in self.packages:
+            self.labels.append(package['label'])
         self.labels.sort()
 
         # optionals
         self.milestones = {}
-        for key, vals in self.packages.iteritems():
+        for package in self.packages:
             try:
-                self.milestones[key] = vals['milestones']
+                self.milestones[package['label']] = package['milestones']
             except KeyError:
                 pass
 
@@ -89,10 +101,10 @@ class Gantt(object):
         self.start = [None] * self.nPackages
         self.end = [None] * self.nPackages
 
-        for key, vals in self.packages.iteritems():
-            idx = self.labels.index(key)
-            self.start[idx] = vals['start']
-            self.end[idx] = vals['end']
+        for pkg in self.packages:
+            idx = self.labels.index(pkg['label'])
+            self.start[idx] = pkg['start']
+            self.end[idx] = pkg['end']
 
         self.durations = map(sub, self.end, self.start)
         self.yPos = np.arange(self.nPackages, 0, -1)
@@ -111,7 +123,7 @@ class Gantt(object):
                 y += [self.yPos[self.labels.index(key)]]
                 x += [value]
 
-        plt.scatter(x, y, s=50, marker="D" ,
+        plt.scatter(x, y, s=50, marker="D",
                     color="yellow", edgecolor="black", zorder=3)
 
     def format(self):
@@ -180,13 +192,13 @@ class Gantt(object):
         plt.savefig(saveFile, bbox_inches='tight')
 
 if __name__ == '__main__':
+    # g = Gantt('tests/basics.json')
+    # g.render()
+    # g.show()
     g = Gantt('sample.json')
     g.render()
+    for bar in [0,1] :
+        g.barlist[bar].set_color('#F1C231')
+    for bar in range(2,6):
+        g.barlist[bar].set_color('#32E07A')
     g.show()
-    # g = Gantt('sample.json')
-    # g.render()
-    # for bar in [0,1] :
-    #     g.barlist[bar].set_color('#F1C231')
-    # for bar in range(2,6):
-    #     g.barlist[bar].set_color('#32E07A')
-    # g.show()

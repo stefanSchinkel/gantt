@@ -1,21 +1,23 @@
 {
-"packages" : {
-    "WP 1-1": {
-        "start" : 0,
-        "end": 2,
-        "milestones" : [1]
-        },
-    "WP 1-2": {
-        "start" : 3,
-        "end": 6
-        },
-    "WP 2-1":  {
-        "start" : 3,
-        "end": 5
-        },
-    "WP 2-2": { "start" : 6,
-        "end": 8
-        }
+"packages" : [
+    {"label" : "WP 1-1",
+    "start" : 0,
+    "end": 2,
+    "milestones" : [1]
     },
+    {
+    "label" : "WP 1-2",
+    "start" : 3,
+    "end": 6
+    },
+    {"label" : "WP 2-1",
+    "start" : 3,
+    "end": 5
+    },
+    {"label" : "WP 2-2",
+    "start" : 6,
+    "end": 8
+    }
+    ],
 "title" : "Basic Title"
 }

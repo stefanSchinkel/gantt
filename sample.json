@@ -1,50 +1,50 @@
 {
-  "packages": {
-    "WP 1-1": {
+  "packages": [
+    { "label" : "WP 1-1",
       "start": 0,
       "end": 2,
       "milestones" : [2]
     },
-    "WP 1-2": {
+    { "label" : "WP 1-2",
       "start": 2,
       "end": 4,
       "milestones" : [3, 4]
     },
-    "WP 2-1": {
+    { "label" : "WP 2-1",
       "start": 3,
       "end": 5,
       "milestones" : [5]
     },
-    "WP 2-2": {
+    { "label" : "WP 2-2",
       "start": 6,
       "end": 8,
       "milestones" : [8]
     },
-    "WP 2-3": {
+    { "label" : "WP 2-3",
       "start": 7,
       "end": 9,
       "milestones" : [8]
     },
-    "WP 2-4": {
+    { "label" : "WP 2-4",
       "start": 8,
       "end": 9,
       "milestones" : [9]
     },
-    "WP 3-1": {
+    { "label" : "WP 3-1",
       "start": 2,
       "end": 6,
       "milestones" : [4,6]
     },
-    "WP 3-2": {
+    { "label" : "WP 3-2",
       "start": 4,
       "end": 8,
       "milestones" : [8]
     },
-    "WP 3-3": {
+    { "label" : "WP 3-3",
       "start": 6,
       "end": 12
     }
-  },
+  ],
 
 "title" : " Sample GANTT for \\textbf{myProject}",
 "xlabel" : "time (weeks)",

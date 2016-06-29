@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
@@ -5,11 +6,11 @@
 00_basics.py - basic tests for gantt
 """
 import unittest
-import sys, os
+import sys
 
 # add to path for sure
 from os import path
-sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
+sys.path.append( path.dirname( path.dirname( path.abspath(__file__))))
 
 from gantt import Gantt
 from gantt import Package as WP
@@ -20,13 +21,29 @@ class TestsPackage(unittest.TestCase):
     """Basic tests for package class
     """
 
-    def testArg(self):
-        """ Parameter handling
+    def testValuePassing(self):
+        """ reject pointless dates
+        """
+        PKG = {"label":  "A", "start" : 0, "end": 2, "milestones" : [1]}
+        pkg = WP(PKG)
+        self.assertEqual(pkg.label, "A")
+        self.assertEqual(pkg.start, 0)
+        self.assertEqual(pkg.end, 2)
+        self.assertEqual(pkg.milestones, [1])
+
+    def testDefColor(self):
+        """ reject pointless dates
+        """
+        PKG = {"label":  "A", "start" : 0, "end": 2}
+        pkg = WP(PKG)
+        self.assertEqual(pkg.color, "#32AEE0")
+
+    def testValError(self):
+        """ reject pointless dates
         """
         # start must be after begin
-        self.assertRaises(ValueError, WP, "Foo", 3, 2)
-
-
+        PKG = {"label":  "A", "start" : 3, "end": 2}
+        self.assertRaises(ValueError, WP, PKG)
 
 class TestsBasics(unittest.TestCase):
     """ Tests to ensure the data ends up in the right places
@@ -41,7 +58,6 @@ class TestsBasics(unittest.TestCase):
         """ Make sure the no. of packages is correct
         """
         g = Gantt(BASICS)
-        nPackages = 4
         self.assertEqual(len(g.packages), 4)
 
     def testTimings(self):
