@@ -3,32 +3,38 @@
     { "label" : "WP 1-1",
       "start": 0,
       "end": 2,
-      "milestones" : [2]
+      "milestones" : [2],
+      "color" : "#F1C231"
     },
     { "label" : "WP 1-2",
       "start": 2,
       "end": 4,
-      "milestones" : [3, 4]
+      "milestones" : [3, 4],
+      "color" : "#F1C231"
     },
     { "label" : "WP 2-1",
       "start": 3,
       "end": 5,
-      "milestones" : [5]
+      "milestones" : [5],
+      "color" : "#32E07A"
     },
     { "label" : "WP 2-2",
       "start": 6,
       "end": 8,
-      "milestones" : [8]
+      "milestones" : [8],
+      "color" : "#32E07A"
     },
     { "label" : "WP 2-3",
       "start": 7,
       "end": 9,
-      "milestones" : [8]
+      "milestones" : [8],
+      "color" : "#32E07A"
     },
     { "label" : "WP 2-4",
       "start": 8,
       "end": 9,
-      "milestones" : [9]
+      "milestones" : [9],
+      "color" : "#32E07A"
     },
     { "label" : "WP 3-1",
       "start": 2,
