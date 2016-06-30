@@ -12,6 +12,9 @@ rc('text', usetex=True)
 
 from operator import sub
 
+DEFCOLOR = "#32AEE0"
+
+
 class Package(object):
     """Encapsulation of a work package
 
@@ -23,7 +26,6 @@ class Package(object):
     """
     def __init__(self, pkg):
 
-        DEFCOLOR = "#32AEE0"
         self.label = pkg['label']
         self.start = pkg['start']
         self.end = pkg['end']
@@ -40,7 +42,7 @@ class Package(object):
 
         try:
             self.color = pkg['color']
-        except KeyError:
+        except:
             self.color = DEFCOLOR
 
 
@@ -164,13 +166,21 @@ class Gantt(object):
         self.ax.yaxis.grid(False)
         self.ax.xaxis.grid(True)
 
+        #assemble colors
+        colors = []
+        for pkg in self.packages:
+            try:
+                colors.append(pkg['color'])
+            except:
+                colors.append(DEFCOLOR)
+
         # render barchart
         self.barlist = plt.barh(self.yPos, self.durations,
                                 left=self.start,
                                 align='center',
-                                height=.3,
+                                height=.5,
                                 alpha=.9,
-                                color='#32AEE0')
+                                color=colors)
 
         # optionals
         if self.milestones:
