@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# pylint: disable=R0902, R0903
 """
 Gantt.py is a simple class to render Gantt charts, as commonly used in
 """
@@ -8,12 +9,9 @@ import json
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import rc
-# rc('text', usetex=True)
+rc('text', usetex=True)
 
 from operator import sub
-
-DEFCOLOR = "#32AEE0"
-
 
 class Package(object):
     """Encapsulation of a work package
@@ -25,6 +23,8 @@ class Package(object):
     :arg str pkg: dictionary w/ package data name
     """
     def __init__(self, pkg):
+
+        DEFCOLOR = "#32AEE0"
 
         self.label = pkg['label']
         self.start = pkg['start']
@@ -68,8 +68,10 @@ class Gantt(object):
         self._procData()
 
     def _loadData(self):
-        """ Load data from dataFile or use sample data. We just import the plain
-        python data structures. This is lazy but serves the purpose here.
+        """ Load data from a JSON file that has to have the keys:
+            packages & title. Packages is an array of objects with
+            a label, start and end property and optional milesstones
+            and color specs.
         """
 
         # load data
@@ -79,10 +81,11 @@ class Gantt(object):
 
         # must-haves
         self.title = data['title']
+
         for pkg in data['packages']:
             self.packages.append(Package(pkg))
-            self.labels.append(pkg['label'])
 
+        self.labels = [pkg['label'] for pkg in data['packages']]
         self.labels.sort()
 
         # optionals
@@ -120,8 +123,7 @@ class Gantt(object):
 
     def addMilestones(self):
         """Add milestones to GANTT chart.
-        The milestones have to provided in dict with the packages they belong
-        to as keys and a list the (discreet) due date for the milestones as values
+        The milestones are simple yellow diamonds
         """
 
         x = []
@@ -209,3 +211,4 @@ if __name__ == '__main__':
     g = Gantt('sample.json')
     g.render()
     g.show()
+    # g.save('img/gantt.png')

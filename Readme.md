@@ -28,29 +28,32 @@ All data is provided as a JSON structure that **has to  contain**:
 ```json
 
 {
-"packages" : {
-    "A": "0, 2",
-    "C": "2, 4",
-    "D": "3, 5",
-   },
+"packages" : [
+    { "label" : "WP 1",
+      "start": 0,
+      "end": 3
+    },
+    { "label" : "WP 2",
+      "start": 4,
+      "end": 6,
+      "milestones" : [5,],
+      "color" : "#FFCC00"
+    }
+  ],
 
 "title" : "Sample GANTT for \\textbf{myProject}"
 }
 ```
-
+The milestones and colors are optional and the title may contain TeX.
 Optionally the JSON may also contain:
 
- - a dictionary mapping milestones to packages
+
  - a label for the x-axis
  - a definition of where set tickmarks
 
 ```json
 
 {
-"milestones" : {
-    "A": [2],
-    "B": [3, 4],
-    },
 "xlabel" : "time (weeks)",
 "xticks" :  [2,4,6,8,10,12]
 }
