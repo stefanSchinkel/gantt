@@ -1,0 +1,1245 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"targ",
+				"target"
+			],
+			[
+				"con",
+				"countries"
+			],
+			[
+				"iO",
+				"iOffSet"
+			],
+			[
+				"y",
+				"yOffsets"
+			],
+			[
+				"bet",
+				"betweenness"
+			],
+			[
+				"sectro",
+				"sector_from"
+			],
+			[
+				"pr",
+				"pretty"
+			],
+			[
+				"pro",
+				"processCodes"
+			],
+			[
+				"proce",
+				"processLines"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"write",
+				"writeJSON"
+			],
+			[
+				"sec",
+				"sector"
+			],
+			[
+				"is",
+				"isNumeric"
+			],
+			[
+				"m",
+				"minor"
+			],
+			[
+				"sub",
+				"subsectors"
+			],
+			[
+				"colo",
+				"colorCount"
+			],
+			[
+				"top",
+				"topIDX"
+			],
+			[
+				"a",
+				"argv"
+			],
+			[
+				"rea",
+				"readCSV"
+			],
+			[
+				"reg",
+				"regionCodes"
+			],
+			[
+				"co",
+				"convert"
+			],
+			[
+				"se",
+				"sectorCodes"
+			],
+			[
+				"J",
+				"jsonFile"
+			],
+			[
+				"cv",
+				"csvfile"
+			],
+			[
+				"jo",
+				"jsonFile"
+			],
+			[
+				"cs",
+				"csvfile"
+			],
+			[
+				"to",
+				"toplevel"
+			],
+			[
+				"u",
+				"uniquify"
+			],
+			[
+				"regi",
+				"regionCSV"
+			],
+			[
+				"de",
+				"detail"
+			],
+			[
+				"if",
+				"ifmain	if __name__ == '__main__'"
+			],
+			[
+				"sectr",
+				"sectors"
+			],
+			[
+				"suB",
+				"subCode"
+			],
+			[
+				"retru",
+				"returnArr"
+			],
+			[
+				"sect",
+				"sectorJSON"
+			],
+			[
+				"test",
+				"testPattern"
+			],
+			[
+				"t",
+				"testCB"
+			],
+			[
+				"cou",
+				"countryFile"
+			],
+			[
+				"data",
+				"dataArray"
+			],
+			[
+				"da",
+				"dataArray"
+			],
+			[
+				"proc",
+				"procLine"
+			],
+			[
+				"reut",
+				"returnArr"
+			],
+			[
+				"region",
+				"subRegionDir"
+			],
+			[
+				"tes",
+				"testPattern"
+			],
+			[
+				"pattern",
+				"patternFile"
+			],
+			[
+				"lo",
+				"logged-in"
+			],
+			[
+				"loi",
+				"loginUser"
+			],
+			[
+				"sessi",
+				"sessionInspector"
+			],
+			[
+				"ts",
+				"testUserPass"
+			],
+			[
+				"tst",
+				"testUserMail"
+			],
+			[
+				"cons",
+				"console"
+			],
+			[
+				"str",
+				"stringComment"
+			],
+			[
+				"reader",
+				"lineReader"
+			],
+			[
+				"line",
+				"lineReader"
+			],
+			[
+				"val",
+				"values"
+			],
+			[
+				"fun",
+				"fun	Function"
+			],
+			[
+				"err",
+				"sendError"
+			],
+			[
+				"sen",
+				"sendError"
+			],
+			[
+				"th",
+				"thead	Tag"
+			],
+			[
+				"add",
+				"addClass	.addClass()"
+			],
+			[
+				"remove",
+				"removeClass	.removeClass()"
+			],
+			[
+				"f",
+				"feedback"
+			],
+			[
+				"suc",
+				"success"
+			],
+			[
+				"sector",
+				"sectorFile"
+			],
+			[
+				"e",
+				"errFun"
+			],
+			[
+				"en",
+				"endFun"
+			],
+			[
+				"lin",
+				"lineReader"
+			],
+			[
+				"lis",
+				"listLength"
+			],
+			[
+				"valid",
+				"validItems"
+			],
+			[
+				"cone",
+				"console"
+			],
+			[
+				"comp",
+				"compareList"
+			],
+			[
+				"vali",
+				"validItems"
+			],
+			[
+				"tar",
+				"targetSec"
+			],
+			[
+				"time",
+				"timeEnd"
+			],
+			[
+				"ch",
+				"checkCountry"
+			],
+			[
+				"ma",
+				"maxIter"
+			],
+			[
+				"be",
+				"beforeCallback"
+			],
+			[
+				"bl",
+				"blockProcessing"
+			],
+			[
+				"blco",
+				"blockProgress"
+			],
+			[
+				"input",
+				"inputBlocks"
+			],
+			[
+				"blockP",
+				"blockProcessing"
+			],
+			[
+				"sp",
+				"swapBlocks"
+			],
+			[
+				"per",
+				"percentVal"
+			],
+			[
+				"ss",
+				"swapBlocks"
+			],
+			[
+				"blockS",
+				"blockSubmit"
+			],
+			[
+				"fa",
+				"fadeIn	.fadeIn()"
+			],
+			[
+				"block",
+				"blockConfidence"
+			],
+			[
+				"fad",
+				"fadeOut	.fadeOut()"
+			],
+			[
+				"blcok",
+				"blockYear"
+			],
+			[
+				"progre",
+				"progressBox"
+			],
+			[
+				"text",
+				"textFile"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"errr",
+				"errorFun"
+			],
+			[
+				"asy",
+				"asyncLineProc"
+			],
+			[
+				"file",
+				"filePath"
+			],
+			[
+				"cont",
+				"contents	.contents()"
+			],
+			[
+				"upo",
+				"uploadForm"
+			],
+			[
+				"su",
+				"successFun"
+			],
+			[
+				"erro",
+				"errorFun"
+			],
+			[
+				"inp",
+				"inputComment"
+			],
+			[
+				"ke",
+				"key"
+			],
+			[
+				"get",
+				"getMetaData"
+			],
+			[
+				"the",
+				"theForm"
+			],
+			[
+				"upl",
+				"uploadForm"
+			],
+			[
+				"shwo",
+				"showBlock"
+			],
+			[
+				"hid",
+				"hideBlock"
+			],
+			[
+				"s",
+				"showBlock"
+			],
+			[
+				"subm",
+				"submitForm"
+			],
+			[
+				"fil",
+				"fileName"
+			],
+			[
+				"sw",
+				"swapBlocks"
+			],
+			[
+				"nex",
+				"nextBlock"
+			],
+			[
+				"see",
+				"selector"
+			],
+			[
+				"show",
+				"showBlock"
+			],
+			[
+				"v",
+				"value_"
+			],
+			[
+				"prot",
+				"prototype"
+			],
+			[
+				"or",
+				"originalHide"
+			],
+			[
+				"type",
+				"typeof"
+			],
+			[
+				"tye",
+				"typeBlock"
+			],
+			[
+				"log",
+				"logProduction"
+			],
+			[
+				"eq",
+				"equal"
+			],
+			[
+				"logP",
+				"logDevelopment"
+			],
+			[
+				"deb",
+				"debugFunction"
+			],
+			[
+				"Leng",
+				"lengthOf"
+			],
+			[
+				"city",
+				"cityStates"
+			],
+			[
+				"fea",
+				"feature"
+			],
+			[
+				"cit",
+				"cityStates"
+			],
+			[
+				"sho",
+				"should"
+			],
+			[
+				"trho",
+				"throwDone"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 394.0,
+		"last_filter": "re",
+		"selected_items":
+		[
+			[
+				"re",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"rei",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"remvoe",
+				"Package Control: Remove Package"
+			],
+			[
+				"p",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ista",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"pyt",
+				"User: Python Flake8 Lint"
+			],
+			[
+				"redin",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"instl",
+				"Package Control: Install Package"
+			],
+			[
+				"lis",
+				"Package Control: List Packages"
+			],
+			[
+				"w",
+				"Word Wrap: Toggle"
+			],
+			[
+				"list pa",
+				"Package Control: List Packages"
+			],
+			[
+				"jsh",
+				"JSHint"
+			],
+			[
+				"del",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"dele",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"dlel",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"dlele",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"dle",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"redi",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"disabl",
+				"Package Control: Disable Package"
+			],
+			[
+				"enabel",
+				"Package Control: Enable Package"
+			],
+			[
+				"listpa",
+				"Package Control: List Packages"
+			],
+			[
+				"set",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"sublim",
+				"SublimeLinter: Choose Gutter Theme"
+			],
+			[
+				"sublime",
+				"SublimeLinter: Choose Mark Style"
+			],
+			[
+				"del	",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"reindt",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reid",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"forl",
+				"Code Folding: Fold Tag Attributes"
+			],
+			[
+				"fold",
+				"Code Folding: Fold Tag Attributes"
+			],
+			[
+				"deele",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"enabl",
+				"Package Control: Enable Package"
+			],
+			[
+				"pacakge",
+				"Package Control: Disable Package"
+			],
+			[
+				"paca",
+				"Package Control: Disable Package"
+			],
+			[
+				"js",
+				"JSHint"
+			],
+			[
+				"j",
+				"JSHint"
+			],
+			[
+				"pag",
+				"Package Control: Install Package"
+			],
+			[
+				"save",
+				"Markdown Preview: Save to HTML"
+			],
+			[
+				"pre",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"prev",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"markd",
+				"Markdown Preview: Open Markdown Cheat sheet"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"tra",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"delete",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"trai",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"t",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"tail",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"Trai",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"trailin",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"git",
+				"GitGutter: Compare Against Commit"
+			],
+			[
+				"git:",
+				"GitGutter: Show Comparing Against"
+			],
+			[
+				"ma",
+				"Markdown Preview: Open Markdown Cheat sheet"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"previ",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"markdo",
+				"Markdown Preview: Open Markdown Cheat sheet"
+			],
+			[
+				"mark",
+				"Markdown Preview: Open Markdown Cheat sheet"
+			],
+			[
+				"prag",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"prv",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"apge",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 521.0
+	},
+	"console":
+	{
+		"height": 104.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/schinkel/Projects/gantt"
+	],
+	"file_history":
+	[
+		"/home/schinkel/work/zeean/code/zeean.net/test/001-JSON.js",
+		"/home/schinkel/work/zeean/code/zeean.net/modules/database.js",
+		"/home/schinkel/work/zeean/code/zeean.net/modules/routes.js",
+		"/home/schinkel/work/zeean/code/zeean.net/server.js",
+		"/home/schinkel/work/zeean/code/zeean.net/Makefile",
+		"/home/schinkel/work/zeean/code/zeean.net/modules/neo.js",
+		"/home/schinkel/work/zeean/code/zeean.net/www/js/visualization.js",
+		"/home/schinkel/work/zeean/code/zeean.net/modules/data.js",
+		"/home/schinkel/work/zeean/code/zeean.net/www/js/parameters.js",
+		"/home/schinkel/work/zeean/code/config/sectors.csv",
+		"/home/schinkel/work/zeean/code/zeean.net/modules/tools.js",
+		"/home/schinkel/work/zeean/code/zeean.net/modules/api.js",
+		"/home/schinkel/work/zeean/code/zeean.net/modules/data/sectors.json",
+		"/home/schinkel/work/zeean/code/zeean.net/test/003-API.js",
+		"/home/schinkel/work/zeean/code/zeean.net/test/004-users.js",
+		"/home/schinkel/work/zeean/code/zeean.net/views/uploadFile.ejs",
+		"/home/schinkel/work/zeean/code/python/createCodeJSONs.py",
+		"/home/schinkel/work/zeean/code/python/createSectorJSON.py",
+		"/home/schinkel/work/zeean/code/python/base/utils.py",
+		"/home/schinkel/work/zeean/code/python/sectors.json",
+		"/home/schinkel/work/zeean/code/config/sectors.json",
+		"/home/schinkel/work/zeean/code/zeean.net/test/t.js",
+		"/home/schinkel/work/zeean/code/config/sectorCodes.json",
+		"/home/schinkel/work/zeean/code/zeean.net/www/js/input.js",
+		"/home/schinkel/.config/sublime-text-3/Packages/User/Pylinter.sublime-settings",
+		"/home/schinkel/.config/sublime-text-3/Packages/Pylinter/Pylinter.sublime-settings",
+		"/home/schinkel/.pylintrc",
+		"/home/schinkel/work/zeean/code/zeean.net/modules/data/sectorCodes.json",
+		"/home/schinkel/work/zeean/code/config/regions.csv",
+		"/home/schinkel/.config/sublime-text-3/Packages/Python Flake8 Lint/Flake8Lint.sublime-settings",
+		"/home/schinkel/work/zeean/code/zeean.net/modules/data/countryCodes.json",
+		"/home/schinkel/work/zeean/code/zeean.net/test/pattern.zdf",
+		"/home/schinkel/work/zeean/code/zeean.net/modules/data/world.json",
+		"/home/schinkel/work/zeean/code/zeean.net/views/format.ejs",
+		"/home/schinkel/work/zeean/code/zeean.net/views/error.ejs",
+		"/home/schinkel/work/zeean/code/zeean.net/modules/data/regions/AFG.json",
+		"/home/schinkel/work/zeean/code/zeean.net/test/000-Basic.js",
+		"/home/schinkel/work/zeean/code/python/data/sectors/sectors.csv",
+		"/home/schinkel/work/zeean/code/python/data/regions/regions.csv",
+		"/home/schinkel/work/zeean/code/python/data/sectors/sectors.csv.gz",
+		"/home/schinkel/work/zeean/code/zeean.net/package.json",
+		"/home/schinkel/work/zeean/code/zeean.net/test/samples/wrongSector.zdf",
+		"/home/schinkel/work/zeean/code/zeean.net/test/samples/wrongCSVFormat.zdf",
+		"/home/schinkel/work/zeean/code/zeean.net/test/samples/wrongRegion.zdf",
+		"/home/schinkel/work/zeean/code/zeean.net/test/samples/sample.zdf",
+		"/home/schinkel/work/zeean/code/zeean.net/test/samples/wrongPattern01.zdf",
+		"/home/schinkel/work/zeean/code/zeean.net/test/test.js",
+		"/home/schinkel/work/zeean/code/zeean.net/test/samples/wrongFieldnumber.zdf",
+		"/home/schinkel/work/zeean/code/zeean.net/test/samples/wrongValues.zdf",
+		"/home/schinkel/work/zeean/code/zeean.net/test/samples/onlyToplevel.zdf",
+		"/home/schinkel/work/zeean/code/zeean.net/test/samples/negativeValues.zdf",
+		"/home/schinkel/work/zeean/code/zeean.net/views/home.ejs",
+		"/home/schinkel/work/zeean/code/zeean.net/modules/users.js",
+		"/home/schinkel/work/zeean/code/zeean.net/test/config.js",
+		"/home/schinkel/work/zeean/code/zeean.net/views/uploadNew.ejs",
+		"/home/schinkel/work/zeean/code/zeean.net/modules/debug.js",
+		"/home/schinkel/work/zeean/code/zeean.net/modules/entries.js",
+		"/home/schinkel/work/zeean/code/zeean.net/modules/upload.js",
+		"/home/schinkel/work/zeean/code/zeean.net/views/signin.ejs",
+		"/home/schinkel/work/zeean/code/setup/deploy.sh",
+		"/home/schinkel/work/zeean/code/zeean.net/www/js/uploadNew.js",
+		"/home/schinkel/.config/sublime-text-3/Packages/JSLint/JSLint.sublime-settings",
+		"/home/schinkel/work/zeean/code/doc/codeStyle.md",
+		"/home/schinkel/work/zeean/code/doc/formats.md",
+		"/home/schinkel/work/zeean/code/zeean.net/test/sample.zdf",
+		"/home/schinkel/work/zeean/code/zeean.net/node_modules/cron/node_modules/moment-timezone/node_modules/moment/locale/de-at.js",
+		"/home/schinkel/temp/test.js",
+		"/home/schinkel/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/schinkel/.config/sublime-text-3/Packages/User/trailing_spaces.sublime-settings",
+		"/home/schinkel/work/zeean/code/file.txt",
+		"/home/schinkel/sectors.csv",
+		"/home/schinkel/work/zeean/code/zeean.net/www/js/utils.js",
+		"/home/schinkel/work/zeean/code/zeean.net/www/css/input.css",
+		"/home/schinkel/temp/uploadNew.js",
+		"/home/schinkel/temp/uploadNew.min.js",
+		"/home/schinkel/work/zeean/code/zeean.net/views/upload.ejs",
+		"/home/schinkel/.config/sublime-text-3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/home/schinkel/.config/sublime-text-3/Packages/User/SublimeLinter.sublime-settings",
+		"/home/schinkel/work/zeean/code/zeean.net/www/js/sample.zdf",
+		"/home/schinkel/work/zeean/code/zeean.net/modules/convert.js",
+		"/home/schinkel/.config/sublime-text-3/Packages/JSHint/README.md",
+		"/home/schinkel/work/zeean/code/zeean.net/views/input.ejs",
+		"/home/schinkel/work/zeean/code/zeean.net/www/js/upload.js",
+		"/home/schinkel/.conkyrc",
+		"/home/schinkel/work/zeean/code/zeean.net/www/js/jquery.form.min.js",
+		"/home/schinkel/work/zeean/code/zeean.net/views/visualization.ejs",
+		"/home/schinkel/work/zeean/code/zeean.net/views/footer.ejs",
+		"/home/schinkel/work/zeean/code/zeean.net/views/header.ejs",
+		"/home/schinkel/work/zeean/code/zeean.net/views/head.ejs",
+		"/home/schinkel/work/zeean/code/zeean.net/views/uploadNew.js",
+		"/home/schinkel/work/zeean/code/zeean.net/www/js/p.js",
+		"/home/schinkel/work/zeean/code/zeean.net/www/js/t.js",
+		"/home/schinkel/.config/sublime-text-3/Packages/User/JavaScript.sublime-settings",
+		"/home/schinkel/work/zeean/code/zeean.net/www/js/d3.slider.js",
+		"/home/schinkel/work/zeean/code/zeean.net/node_modules/should/lib/assertion-error.js",
+		"/home/schinkel/work/zeean/code/zeean.net/node_modules/should/should.js",
+		"/home/schinkel/work/zeean/code/zeean.net/node_modules/nodemailer/node_modules/mailcomposer/node_modules/follow-redirects/node_modules/underscore/underscore.js",
+		"/home/schinkel/work/zeean/code/zeean.net/node_modules/nodemailer/node_modules/mailcomposer/node_modules/follow-redirects/node_modules/underscore/underscore-min.js",
+		"/home/schinkel/work/zeean/code/zeean.net/node_modules/istanbul/node_modules/once/once.js",
+		"/home/schinkel/work/zeean/code/zeean.net/node_modules/istanbul/node_modules/nopt/lib/nopt.js",
+		"/home/schinkel/work/zeean/code/zeean.net/node_modules/istanbul/node_modules/js-yaml/node_modules/argparse/node_modules/lodash/index.js",
+		"/home/schinkel/work/zeean/code/zeean.net/node_modules/istanbul/node_modules/abbrev/abbrev.js",
+		"/home/schinkel/work/zeean/code/zeean.net/node_modules/cron/tests/test-cron.js",
+		"/home/schinkel/work/zeean/code/zeean.net/modules/utils.js",
+		"/home/schinkel/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/schinkel/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/schinkel/.config/sublime-text-3/Packages/JSHint Gutter/JSHint.sublime-settings",
+		"/home/schinkel/.config/sublime-text-3/Packages/JSHint Gutter/.jshintrc",
+		"/home/schinkel/work/zeean/code/zeean.net/www/upload.html",
+		"/home/schinkel/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/schinkel/work/zeean/documentation/api.md",
+		"/home/schinkel/work/zeean/documentation/setup.md",
+		"/home/schinkel/t.txt",
+		"/home/schinkel/work/zeean/code/test/000-Basic.js",
+		"/home/schinkel/work/zeean/code/zeean.net/index.js",
+		"/home/schinkel/work/zeean/code/test/index.js",
+		"/home/schinkel/work/zeean/code/test/test.js",
+		"/home/schinkel/work/zeean/code/zeean.net/modules/data/regions.json",
+		"/home/schinkel/work/zeean/code/zeean.net/www/js/bootstrap.file-input.js",
+		"/home/schinkel/work/zeean/code/zeean.net/node_modules/nodemailer/lib/transport.js",
+		"/home/schinkel/work/zeean/code/zeean.net/node_modules/winston/node_modules/request/tests/test-redirect.js",
+		"/home/schinkel/work/zeean/code/test/db.js",
+		"/home/schinkel/work/zeean/code/test/testDB.js",
+		"/home/schinkel/work/zeean/code/zeean.net/views/videos.ejs",
+		"/home/schinkel/work/zeean/code/setup/init.d/node-service",
+		"/home/schinkel/work/zeean/code/zeean.net/www/js/map.js",
+		"/home/schinkel/work/zeean/code/setup/nginx.conf",
+		"/home/schinkel/work/zeean/code/zeean.net/exp34.diff.patch"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"YearSelect",
+			"popover",
+			"createArcGroup",
+			"createArcPoints",
+			"d.region_from",
+			"createArcPoints",
+			"createArcGroup",
+			"from",
+			"[i]",
+			"createArcGroup",
+			"createArc",
+			"draw",
+			"colorBar",
+			"regionDisallowAll",
+			":",
+			" ? ",
+			"?",
+			" ?",
+			"year",
+			");\n",
+			"import",
+			"\"",
+			"(\"/\",",
+			"\"",
+			"sectors",
+			"raw",
+			"names",
+			"major",
+			"level",
+			"order",
+			"major",
+			"number2toplevel",
+			"topIDX",
+			"num2char",
+			"2",
+			",\"",
+			"\"color\":",
+			"\"color\":\"",
+			"x",
+			"id",
+			"major",
+			"childs",
+			"raw",
+			"])\n",
+			"sOut",
+			" pwd",
+			",\"",
+			", \"",
+			"sectors",
+			"topLevel",
+			"regionCodes",
+			"region",
+			"codes",
+			"code",
+			".push",
+			"segs",
+			"secs",
+			"sectorCodes",
+			"countryFile",
+			"sectorFile",
+			"dataStream",
+			"s.",
+			"s",
+			"iRun",
+			"cb",
+			"error.ejs",
+			"GADM",
+			",\"",
+			"done",
+			"wrongField",
+			"in",
+			"var ",
+			"loggged",
+			"loggg",
+			"user.post",
+			"request.post(url)",
+			"logMeIn",
+			"sectors",
+			"files",
+			"upload",
+			"appEnv",
+			" fail on",
+			"requireLogin",
+			",//",
+			"\"",
+			"{throw err;}",
+			"function(done)",
+			"allLinesOk",
+			"sendError(res,",
+			"sendError(",
+			"checkLinePattern",
+			"<div class=\"col-md-10\" style=\"padding-top: 10px\">",
+			"b>",
+			"tr",
+			"    ",
+			",",
+			"function(req, res)",
+			"lineByLine",
+			"feedb",
+			"feedback",
+			"resRegions",
+			"data",
+			"new",
+			"100",
+			"value",
+			"return",
+			"     );",
+			"lr.",
+			", ",
+			"syncLineProc",
+			"fromRegion",
+			"=",
+			"compare",
+			" str",
+			"str",
+			"con",
+			"codes",
+			"^.",
+			"^",
+			"...[A-Z]",
+			"Advanced F",
+			"checkCountry",
+			"countries",
+			"[",
+			"\\n",
+			"AFG",
+			"'ZEW'",
+			"BHR"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			",\\n\"",
+			"\",\"",
+			"#### ",
+			"^#### ",
+			"var ",
+			",",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 150.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.markdown":
+	{
+		"height": 100.0
+	},
+	"pinned_build_system": "",
+	"project": "gantt.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 502.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/work/zeean/refinement.sublime-project"
+			]
+		],
+		"width": 382.0
+	},
+	"select_symbol":
+	{
+		"height": 394.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 511.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 308.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
