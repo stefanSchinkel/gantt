@@ -14,10 +14,20 @@ sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 from gantt import Gantt
 from gantt import Package as WP
+
+class ExtendedTestCase(unittest.TestCase):
+
+  def assertRaisesMsg(self, msg, func, *args, **kwargs):
+    try:
+      func(*args, **kwargs)
+      self.assertFail()
+    except Exception as inst:
+      self.assertEqual(inst.message, msg)
+
 # file we use
 BASICS = './basics.json'
 
-class TestsPackage(unittest.TestCase):
+class TestsPackage(ExtendedTestCase):
     """Basic tests for package class
     """
 
@@ -31,12 +41,6 @@ class TestsPackage(unittest.TestCase):
         self.assertEqual(pkg.end, 2)
         self.assertEqual(pkg.milestones, [1])
 
-    def testDefColor(self):
-        """ reject pointless dates
-        """
-        PKG = {"label":  "A", "start" : 0, "end": 2}
-        pkg = WP(PKG)
-        self.assertEqual(pkg.color, "#32AEE0")
 
     def testValError(self):
         """ reject pointless dates
@@ -44,6 +48,26 @@ class TestsPackage(unittest.TestCase):
         # start must be after begin
         PKG = {"label":  "A", "start" : 3, "end": 2}
         self.assertRaises(ValueError, WP, PKG)
+
+
+    def testNegatives(self):
+        """ reject negative start/end
+        """
+        # start must be after begin
+        PKG = {"label":  "A", "start" : -1, "end": 2}
+        self.assertRaisesMsg("Package cannot begin at t < 0", WP, PKG)
+        PKG = {"label":  "A", "start" : -1, "end": -1}
+        self.assertRaisesMsg("Package cannot begin at t < 0", WP, PKG)
+        PKG = {"label":  "A", "start" : 3, "end": -1}
+        self.assertRaisesMsg("Package cannot begin at t < 0", WP, PKG)
+
+
+    def testDefColor(self):
+        """ reject pointless dates
+        """
+        PKG = {"label":  "A", "start" : 0, "end": 2}
+        pkg = WP(PKG)
+        self.assertEqual(pkg.color, "#32AEE0")
 
 class TestsBasics(unittest.TestCase):
     """ Tests to ensure the data ends up in the right places

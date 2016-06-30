@@ -28,6 +28,8 @@ class Package(object):
         self.start = pkg['start']
         self.end = pkg['end']
 
+        if self.start < 0 or self.end < 0:
+            raise ValueError("Package cannot begin at t < 0")
         if self.start > self.end:
             raise ValueError("Cannot end before started")
 
