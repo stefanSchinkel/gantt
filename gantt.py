@@ -211,4 +211,4 @@ if __name__ == '__main__':
     g = Gantt('sample.json')
     g.render()
     g.show()
-    # g.save('img/gantt.png')
+    #g.save('img/GANTT.png')
