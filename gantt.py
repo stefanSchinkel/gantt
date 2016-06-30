@@ -8,7 +8,7 @@ import json
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import rc
-rc('text', usetex=True)
+# rc('text', usetex=True)
 
 from operator import sub
 
@@ -42,7 +42,7 @@ class Package(object):
 
         try:
             self.color = pkg['color']
-        except:
+        except KeyError:
             self.color = DEFCOLOR
 
 
@@ -59,6 +59,11 @@ class Gantt(object):
         :arg str dataFile: file holding Gantt data
         """
         self.dataFile = dataFile
+
+        # some lists needed
+        self.packages = []
+        self.labels = []
+
         self._loadData()
         self._procData()
 
@@ -67,35 +72,35 @@ class Gantt(object):
         python data structures. This is lazy but serves the purpose here.
         """
 
-        # load data file
-        with open(self.dataFile) as fh:
-            data = json.load(fh)
+        # load data
+        fh = open(self.dataFile)
+        data = json.load(fh)
+        fh.close()
 
         # must-haves
         self.title = data['title']
-        self.packages = data['packages']
-        self.labels = []
+        for pkg in data['packages']:
+            self.packages.append(Package(pkg))
+            self.labels.append(pkg['label'])
 
-        for package in self.packages:
-            self.labels.append(package['label'])
         self.labels.sort()
 
         # optionals
         self.milestones = {}
-        for package in self.packages:
+        for pkg in self.packages:
             try:
-                self.milestones[package['label']] = package['milestones']
-            except KeyError:
+                self.milestones[pkg.label] = pkg.milestones
+            except AttributeError:
                 pass
 
         try:
             self.xlabel = data['xlabel']
         except KeyError:
-            self.xlabel = None
+            self.xlabel = ""
         try:
             self.xticks = data['xticks']
         except KeyError:
-            self.xticks = None
+            self.xticks = ""
 
     def _procData(self):
         """ Process data to have all values needed for plotting
@@ -106,9 +111,9 @@ class Gantt(object):
         self.end = [None] * self.nPackages
 
         for pkg in self.packages:
-            idx = self.labels.index(pkg['label'])
-            self.start[idx] = pkg['start']
-            self.end[idx] = pkg['end']
+            idx = self.labels.index(pkg.label)
+            self.start[idx] = pkg.start
+            self.end[idx] = pkg.end
 
         self.durations = map(sub, self.end, self.start)
         self.yPos = np.arange(self.nPackages, 0, -1)
@@ -117,7 +122,6 @@ class Gantt(object):
         """Add milestones to GANTT chart.
         The milestones have to provided in dict with the packages they belong
         to as keys and a list the (discreet) due date for the milestones as values
-
         """
 
         x = []
@@ -169,10 +173,8 @@ class Gantt(object):
         #assemble colors
         colors = []
         for pkg in self.packages:
-            try:
-                colors.append(pkg['color'])
-            except:
-                colors.append(DEFCOLOR)
+            colors.append(pkg.color)
+
 
         # render barchart
         self.barlist = plt.barh(self.yPos, self.durations,
@@ -204,13 +206,6 @@ class Gantt(object):
         plt.savefig(saveFile, bbox_inches='tight')
 
 if __name__ == '__main__':
-    # g = Gantt('tests/basics.json')
-    # g.render()
-    # g.show()
     g = Gantt('sample.json')
     g.render()
-    for bar in [0, 1]:
-        g.barlist[bar].set_color('#F1C231')
-    for bar in range(2, 6):
-        g.barlist[bar].set_color('#32E07A')
     g.show()
