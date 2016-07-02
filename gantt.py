@@ -144,7 +144,7 @@ class Gantt(object):
                 y += [self.yPos[self.labels.index(key)]]
                 x += [value]
 
-        plt.scatter(x, y, s=50, marker="D",
+        plt.scatter(x, y, s=120, marker="D",
                     color="yellow", edgecolor="black", zorder=3)
 
     def format(self):
@@ -194,7 +194,7 @@ class Gantt(object):
                                 left=self.start,
                                 align='center',
                                 height=.5,
-                                alpha=.9,
+                                alpha=1,
                                 color=colors)
 
         # optionals
