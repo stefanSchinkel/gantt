@@ -1,21 +1,24 @@
 [![Build Status](https://travis-ci.org/stefanSchinkel/gantt.svg?branch=master)](https://travis-ci.org/stefanSchinkel/gantt)
 ###README
 
-gantt.py is a python class to produce, well, Gantt charts. The charts are kept (very) simple, using a discreet time scale, unicolor bars and optional milesstones. Adapt the data structure according to your needs.
+Gantt is a python class to produce, well, Gantt charts.
+The charts are kept (very) simple, using a discreet time scale,
+unicolor bars and optional milesstones.
 
 ###Background
-Gantt charts are commonly used in project management. I had to make one myself and LibreProject was way too involved for that. Hence I used OOCalc and a plain horizontal bar chart. That took some time but was ok. One day I was requested to add milestones (basically just a marker) to the chart. I completely failed doing this in OOCalc (and still don't know how to do that ...).
+Gantt charts are commonly used in project management. I wanted to  make one myself and LibreProject was way too involved for the project in question.
+Hence I used OpenOffice Calc and made a plain horizontal bar chart.
+That took little time but was ok. Then I needed to add milestones (basically just a marker) to the chart. I completely failed doing this in OpenOffice (and still don't know how to do that ...).
 
 Long story short: I don't know how to [excel](https://xkcd.com/559/).
 
 ### Basic usage
 
 ```python
-from gantt import Gantt         # import
-g = Gantt("data.json")          # init
-g.render()                      # render
-g.barlist[2].set_color('#F1C231')    # color individual bars
-g.show()                            # or save w/ g.save('foo.png')
+from gantt import Gantt # import
+g = Gantt("data.json")  # init
+g.render()              # render
+g.show()                # or save w/ g.save('foo.png')
 ```
 
 ### Data structure :construction:
@@ -67,7 +70,7 @@ See [sample.json](./sample.json) for the data used to produce the image below.
 ### ToDo
  - nicer data structure (JSON) :white_check_mark:
  - dedicated class for packages :white_check_mark:
- - headless plotting and dynamic TeX support
+ - dynamic TeX support :white_check_mark:
  - add parameter object/dict for more control over colors etc
 
 ###Screenshot
