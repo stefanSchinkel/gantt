@@ -4,12 +4,23 @@
 Gantt.py is a simple class to render Gantt charts, as commonly used in
 """
 
+# handling of TeX support:
+# on Linux assume TeX
+# on OSX add TexLive if present
+import os, platform
+LATEX = True
+if (platform.system == 'Darwin') & os.path.isdir('/usr/texbin'):
+    os.environ['PATH'] = os.environ['PATH'] + ':/usr/texbin'
+else:
+    LATEX = False
+
 import json
 # setup pyplot w/ tex support
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import rc
-rc('text', usetex=True)
+if LATEX:
+    rc('text', usetex=True)
 
 from operator import sub
 
