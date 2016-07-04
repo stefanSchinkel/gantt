@@ -9,11 +9,14 @@ Gantt.py is a simple class to render Gantt charts, as commonly used in
 # on OSX add TexLive if present
 import os, platform
 LATEX = True
-if (platform.system == 'Darwin') & os.path.isdir('/usr/texbin'):
+if (platform.system() == 'Darwin') & os.path.isdir('/usr/texbin'):
     os.environ['PATH'] = os.environ['PATH'] + ':/usr/texbin'
+elif (platform.system() == 'Linux') & os.path.isfile('/usr/bin/latex'):
+    LATEX = True
 else:
     LATEX = False
 
+print "LATEX is " + str(LATEX)
 import json
 # setup pyplot w/ tex support
 import numpy as np
