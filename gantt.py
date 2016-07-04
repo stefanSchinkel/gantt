@@ -16,7 +16,6 @@ elif (platform.system() == 'Linux') & os.path.isfile('/usr/bin/latex'):
 else:
     LATEX = False
 
-print "LATEX is " + str(LATEX)
 import json
 # setup pyplot w/ tex support
 import numpy as np
@@ -224,5 +223,5 @@ class Gantt(object):
 if __name__ == '__main__':
     g = Gantt('sample.json')
     g.render()
-    g.show()
-    #g.save('img/GANTT.png')
+    # g.show()
+    g.save('img/GANTT.png')
