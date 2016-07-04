@@ -12,8 +12,15 @@ import sys
 from os import path
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
+# this has to be done first, otherwise Gantt sets the agg
+import matplotlib
+matplotlib.use('agg')
+import matplotlib.pyplot as plt
+
 from gantt import Gantt
 from gantt import Package as WP
+
+
 
 class ExtendedTestCase(unittest.TestCase):
 
@@ -91,6 +98,13 @@ class TestsBasics(unittest.TestCase):
         self.assertEqual(g.start, [0, 3, 3, 6])
         self.assertEqual(g.end, [2, 6, 5, 8])
 
+    def testTitle(self):
+        """ Make sure title is passed to plot
+        """
+        g = Gantt(BASICS)
+        g.render()
+        x = g.ax.get_title()
+        self.assertEqual(x, "Basic Title")
 
 if __name__ == '__main__':
     unittest.main()
