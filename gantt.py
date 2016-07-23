@@ -58,6 +58,10 @@ class Package(object):
         except KeyError:
             self.color = DEFCOLOR
 
+        try:
+            self.legend = pkg['legend']
+        except KeyError:
+            self.legend = None
 
 class Gantt(object):
     """Gantt
@@ -134,21 +138,6 @@ class Gantt(object):
         self.durations = map(sub, self.end, self.start)
         self.yPos = np.arange(self.nPackages, 0, -1)
 
-    def addMilestones(self):
-        """Add milestones to GANTT chart.
-        The milestones are simple yellow diamonds
-        """
-
-        x = []
-        y = []
-        for key in self.milestones.iterkeys():
-            for value in self.milestones[key]:
-                y += [self.yPos[self.labels.index(key)]]
-                x += [value]
-
-        plt.scatter(x, y, s=120, marker="D",
-                    color="yellow", edgecolor="black", zorder=3)
-
     def format(self):
         """ Format various aspect of the plot, such as labels,ticks, BBox
         :todo: Refactor to use a settings object
@@ -176,6 +165,39 @@ class Gantt(object):
         if self.xticks:
             plt.xticks(self.xticks, map(str, self.xticks))
 
+    def addMilestones(self):
+        """Add milestones to GANTT chart.
+        The milestones are simple yellow diamonds
+        """
+
+        if not self.milestones:
+            return
+
+        x = []
+        y = []
+        for key in self.milestones.iterkeys():
+            for value in self.milestones[key]:
+                y += [self.yPos[self.labels.index(key)]]
+                x += [value]
+
+        plt.scatter(x, y, s=120, marker="D",
+                    color="yellow", edgecolor="black", zorder=3)
+
+    def addLegend(self):
+        """Add a legend to the plot iff there are legend entries in
+        the package definitions
+        """
+
+        cnt = 0
+        for pkg in self.packages:
+            if pkg.legend:
+                cnt += 1
+                idx = self.labels.index(pkg.label)
+                self.barlist[idx].set_label(pkg.legend)
+
+        if cnt > 0:
+            self.legend = self.ax.legend(shadow=False, ncol=3, fontsize="medium")
+
     def render(self):
         """ Prepare data for plotting
         """
@@ -190,8 +212,6 @@ class Gantt(object):
         for pkg in self.packages:
             colors.append(pkg.color)
 
-
-        # render barchart
         self.barlist = plt.barh(self.yPos, self.durations,
                                 left=self.start,
                                 align='center',
@@ -199,12 +219,10 @@ class Gantt(object):
                                 alpha=1,
                                 color=colors)
 
-        # optionals
-        if self.milestones:
-            self.addMilestones()
-
         # format plot
         self.format()
+        self.addMilestones()
+        self.addLegend()
 
     @staticmethod
     def show():
@@ -223,5 +241,5 @@ class Gantt(object):
 if __name__ == '__main__':
     g = Gantt('sample.json')
     g.render()
-    # g.show()
-    g.save('img/GANTT.png')
+    g.show()
+    # g.save('img/GANTT.png')
