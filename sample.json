@@ -40,7 +40,8 @@
       "start": 2,
       "end": 6,
       "milestones" : [4,6],
-      "color" : "lightgreen"
+      "color" : "lightgreen",
+      "legend": "worker three"
     },
     { "label" : "WP 3-2",
       "start": 4,
