@@ -4,10 +4,13 @@
 Gantt.py is a simple class to render Gantt charts, as commonly used in
 """
 
+import json
+from operator import sub
 # handling of TeX support:
 # on Linux assume TeX
 # on OSX add TexLive if present
-import os, platform
+import os
+import platform
 LATEX = True
 if (platform.system() == 'Darwin') & os.path.isdir('/usr/texbin'):
     os.environ['PATH'] = os.environ['PATH'] + ':/usr/texbin'
@@ -16,7 +19,6 @@ elif (platform.system() == 'Linux') & os.path.isfile('/usr/bin/latex'):
 else:
     LATEX = False
 
-import json
 # setup pyplot w/ tex support
 import numpy as np
 import matplotlib.pyplot as plt
@@ -24,7 +26,6 @@ from matplotlib import rc
 if LATEX:
     rc('text', usetex=True)
 
-from operator import sub
 
 class Package(object):
     """Encapsulation of a work package
@@ -62,6 +63,7 @@ class Package(object):
             self.legend = pkg['legend']
         except KeyError:
             self.legend = None
+
 
 class Gantt(object):
     """Gantt
@@ -153,7 +155,7 @@ class Gantt(object):
 
         # tighten axis but give a little room from bar height
         plt.xlim(0, max(self.end))
-        plt.ylim(0.5, self.nPackages+.5)
+        plt.ylim(0.5, self.nPackages + .5)
 
         # add title and package names
         plt.yticks(self.yPos, self.labels)
@@ -196,7 +198,8 @@ class Gantt(object):
                 self.barlist[idx].set_label(pkg.legend)
 
         if cnt > 0:
-            self.legend = self.ax.legend(shadow=False, ncol=3, fontsize="medium")
+            self.legend = self.ax.legend(
+                shadow=False, ncol=3, fontsize="medium")
 
     def render(self):
         """ Prepare data for plotting
@@ -207,7 +210,7 @@ class Gantt(object):
         self.ax.yaxis.grid(False)
         self.ax.xaxis.grid(True)
 
-        #assemble colors
+        # assemble colors
         colors = []
         for pkg in self.packages:
             colors.append(pkg.color)
@@ -237,6 +240,7 @@ class Gantt(object):
         :arg str saveFile: file to save to
         """
         plt.savefig(saveFile, bbox_inches='tight')
+
 
 if __name__ == '__main__':
     g = Gantt('sample.json')
