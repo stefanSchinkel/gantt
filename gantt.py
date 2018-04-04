@@ -177,7 +177,7 @@ class Gantt(object):
 
         x = []
         y = []
-        for key in self.milestones.iterkeys():
+        for key in self.milestones.keys():
             for value in self.milestones[key]:
                 y += [self.yPos[self.labels.index(key)]]
                 x += [value]
@@ -215,7 +215,7 @@ class Gantt(object):
         for pkg in self.packages:
             colors.append(pkg.color)
 
-        self.barlist = plt.barh(self.yPos, self.durations,
+        self.barlist = plt.barh(self.yPos, list(self.durations),
                                 left=self.start,
                                 align='center',
                                 height=.5,
@@ -246,4 +246,4 @@ if __name__ == '__main__':
     g = Gantt('sample.json')
     g.render()
     g.show()
-    # g.save('img/GANTT.png')
+    #g.save('img/GANTT.png')
