@@ -105,7 +105,6 @@ class Gantt(object):
             self.packages.append(Package(pkg))
 
         self.labels = [pkg['label'] for pkg in data['packages']]
-        self.labels.sort()
 
         # optionals
         self.milestones = {}
