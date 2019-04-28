@@ -1,36 +1,35 @@
 #!/usr/bin/env python
-# pylint: disable=R0902, R0903
+# pylint: disable=R0902, R0903, C0103
 """
 Gantt.py is a simple class to render Gantt charts, as commonly used in
 """
 
-import json
-from operator import sub
-# handling of TeX support:
-# on Linux assume TeX
-# on OSX add TexLive if present
 import os
+import json
 import platform
-LATEX = True
-if (platform.system() == 'Darwin') & os.path.isdir('/usr/texbin'):
-    os.environ['PATH'] = os.environ['PATH'] + ':/usr/texbin'
-elif (platform.system() == 'Linux') & os.path.isfile('/usr/bin/latex'):
+from operator import sub
+
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import rc
+
+# TeX support: on Linux assume TeX in /usr/bin, on OSX check for texlive
+if (platform.system() == 'Darwin') and 'tex' in os.getenv("PATH"):
+    LATEX = True
+elif (platform.system() == 'Linux') and os.path.isfile('/usr/bin/latex'):
     LATEX = True
 else:
     LATEX = False
 
 # setup pyplot w/ tex support
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib import rc
 if LATEX:
     rc('text', usetex=True)
 
 
-class Package(object):
+class Package():
     """Encapsulation of a work package
 
-    A work package is instantiate from a dictionary. It **has to have**
+    A work package is instantiated from a dictionary. It **has to have**
     a label, astart and an end. Optionally it may contain milestones
     and a color
 
@@ -65,7 +64,7 @@ class Package(object):
             self.legend = None
 
 
-class Gantt(object):
+class Gantt():
     """Gantt
     Class to render a simple Gantt chart, with optional milestones
     """
@@ -94,9 +93,8 @@ class Gantt(object):
         """
 
         # load data
-        fh = open(self.dataFile)
-        data = json.load(fh)
-        fh.close()
+        with open(self.dataFile) as fh:
+            data = json.load(fh)
 
         # must-haves
         self.title = data['title']
@@ -166,7 +164,7 @@ class Gantt(object):
         if self.xticks:
             plt.xticks(self.xticks, map(str, self.xticks))
 
-    def addMilestones(self):
+    def add_milestones(self):
         """Add milestones to GANTT chart.
         The milestones are simple yellow diamonds
         """
@@ -184,7 +182,7 @@ class Gantt(object):
         plt.scatter(x, y, s=120, marker="D",
                     color="yellow", edgecolor="black", zorder=3)
 
-    def addLegend(self):
+    def add_legend(self):
         """Add a legend to the plot iff there are legend entries in
         the package definitions
         """
@@ -223,8 +221,8 @@ class Gantt(object):
 
         # format plot
         self.format()
-        self.addMilestones()
-        self.addLegend()
+        self.add_milestones()
+        self.add_legend()
 
     @staticmethod
     def show():
@@ -245,4 +243,4 @@ if __name__ == '__main__':
     g = Gantt('sample.json')
     g.render()
     g.show()
-    #g.save('img/GANTT.png')
+    # g.save('img/GANTT.png')
