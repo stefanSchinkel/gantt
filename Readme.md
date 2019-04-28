@@ -34,25 +34,24 @@ All data is provided as a JSON structure that **has to contain**:
 
 {
   "packages": [
-  { "label" : "WP 1-1",
-    "start": 0,
-    "end": 2,
-    "milestones" : [2],
-    "legend": "worker one"
-  },
-  { "label" : "WP 1-2",
-    "start": 2,
-    "end": 4,
-    "milestones" : [3, 4]
-  }
+    { "label" : "WP 1-1",
+      "start": 0,
+      "end": 2,
+      "milestones" : [2],
+      "legend": "worker one"
+    },
+    { "label" : "WP 1-2",
+      "start": 2,
+      "end": 4,
+      "milestones" : [3, 4]
+    }
   ],
-
-"title" : " Sample GANTT for \\textbf{myProject}",
-"xlabel" : "time (weeks)",
-"xticks" : [2,4,6,8,10,12]
+  "title" : " Sample GANTT for \\textbf{myProject}",
+  "xlabel" : "time (weeks)",
+  "xticks" : [2,4,6,8,10,12]
 }
-
 ```
+
 The milestones, colors and legend entry are optional as are the label for the x-axis and the definition of the tickmarks.
 The title may contain TeX, but make sure your system supports it. For
 
@@ -60,8 +59,15 @@ See [sample.json](./sample.json) for the data used to produce the image below.
 
 ### Requirements
 
- - numpy
- - matplotlib
+The requirements are rather limited and can be installed from the requirements file. I recommend using a virtual environment for that
+
+```sh
+# virtualenv setup, recommened
+python3 -m venv .venv
+source .venv/bin/activate
+# actual install for requirements
+pip install -r requirements.textbf
+```
 
 ### ToDo
 
