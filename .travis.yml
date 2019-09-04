@@ -1,12 +1,13 @@
 language: python
 python:
-  - "2.7"
+  - "3.5"
+  - "3.6"
+  - "3.7"
 
-# we need numpy and mpl
+# tox is used to run all test
 install:
-  - pip install numpy
-  - pip install matplotlib
-  - pip install nose
+  - pip install tox
+  # - pip install -r requirements-dev.txt
 # command to run tests
 script:
-- cd tests && nosetests *.py
+  - tox

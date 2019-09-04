@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 #
 """
-00_basics.py - basic tests for gantt
+test_basics.py - basic tests for gantt
 """
-import unittest
 import sys
+import unittest
 from os import path
 
 # this has to be done first, otherwise Gantt sets the agg
@@ -19,7 +19,7 @@ from gantt import Package as WP
 
 
 # file we use
-BASICS = './basics.json'
+BASICS = path.join(path.dirname(path.abspath(__file__)), "basics.json")
 
 
 class ExtendedTestCase(unittest.TestCase):
@@ -29,7 +29,7 @@ class ExtendedTestCase(unittest.TestCase):
             func(*args, **kwargs)
             self.assertFail()
         except Exception as inst:
-            self.assertEqual(inst.message, msg)
+            self.assertEqual(inst.msg, msg)
 
 
 class TestsPackage(ExtendedTestCase):
@@ -58,11 +58,12 @@ class TestsPackage(ExtendedTestCase):
         """
         # start must be after begin
         PKG = {"label": "A", "start": -1, "end": 2}
-        self.assertRaisesMsg("Package cannot begin at t < 0", WP, PKG)
+        self.assertRaises(ValueError, WP, PKG)
         PKG = {"label": "A", "start": -1, "end": -1}
-        self.assertRaisesMsg("Package cannot begin at t < 0", WP, PKG)
+        self.assertRaises(ValueError, WP, PKG)
         PKG = {"label": "A", "start": 3, "end": -1}
-        self.assertRaisesMsg("Package cannot begin at t < 0", WP, PKG)
+        self.assertRaises(ValueError, WP, PKG)
+
 
     def testDefColor(self):
         """ reject pointless dates
