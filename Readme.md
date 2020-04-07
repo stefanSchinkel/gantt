@@ -23,7 +23,7 @@ g.show()                # or save w/ g.save('foo.png')
 
 Or simply call `runner.py`
 
-### Data structure :construction:
+### Data structure
 
 All data is provided as a JSON structure that **has to contain**:
 
@@ -57,16 +57,18 @@ The title may contain TeX, but make sure your system supports it. For
 
 See [sample.json](./sample.json) for the data used to produce the image below.
 
-### Requirements
+### Installation
 
-The requirements are rather limited and can be installed from the requirements file. I recommend using a virtual environment for that
+The requirements are rather limited and can installed from the requirements file. I recommend using a virtual environment for that:
 
 ```sh
-# virtualenv setup, recommened
+# virtualenv setup, recommended
 python3 -m venv .venv
 source .venv/bin/activate
 # actual install for requirements
-pip install -r requirements.textbf
+pip install -r requirements.txt
+# to install dev dependencies too run
+# pip install -r requirements-dev.txt
 ```
 
 ### ToDo
@@ -82,23 +84,6 @@ pip install -r requirements.textbf
 
 See [sample.json](./sample.json) for definition.
 
-### Troubleshooting
+### Supported Versions
 
-#### Running in a virualenv on macOS
-
-```sh
-# install wxpython via homebrew
-brew install wxmac
-
-# link the (system) wxpython into the venv
-# assuming your venv is in ~/.venv/gantt
-cd ~/.venv/gantt/lib/python2.7/site-packages/
-ln -s /usr/local/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/wx.pth wx.pth
-```
-
-```sh
-cd ~/.venv/gantt/lib/python2.7/site-packages
-ls
-# wx-3.0-osx_cocoa -> /usr/local/lib/python2.7/site-packages/wx-3.0-osx_cocoa
-# wx.pth -> /usr/local/lib/python2.7/site-packages/wx.pth
-```
+Officially Python 3.5+ is supported. It _should_ work with legacy versions as well (as long as you have numpy and matplotlib installed) but this is not supported.

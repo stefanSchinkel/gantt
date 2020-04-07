@@ -1,0 +1,8 @@
+include LICENSE
+include setup.py
+include Readme.md
+include requirements.txt
+include gantt.py
+include gantt/test/test_basics.py
+include gantt/test/basics.json
+
