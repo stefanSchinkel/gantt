@@ -23,7 +23,7 @@ else:
 
 # setup pyplot w/ tex support
 if LATEX:
-    rc('text', usetex=False)
+    rc('text', usetex=True)
 
 
 class Package():
