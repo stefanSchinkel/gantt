@@ -1,3 +1,3 @@
-from gantt.gantt import Gantt
+from gantt.gantt import Gantt, Package
 
-__all__ = ['Gantt']
+__all__ = ['Gantt', 'Package']
