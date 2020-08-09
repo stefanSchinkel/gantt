@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from os import path
-from setuptools import setup, find_packages
+from setuptools import setup
 
 cwd = path.abspath(path.dirname(__file__))
 
@@ -32,8 +32,7 @@ setup(
         "Operating System :: OS Independent",
         "Topic :: Office/Business :: Scheduling",
     ],
-    package_dir={'': 'src'},
-    packages=find_packages('src'),
+    # packages=["gantt"],
     url="https://github.com/stefanSchinkel/gantt",
     description="Simple gantt charts in python.",
     long_description=long_description,
