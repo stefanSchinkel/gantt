@@ -86,4 +86,6 @@ See [sample.json](./sample.json) for definition.
 
 ### Supported Versions
 
-Officially Python 3.5+ is supported. It _should_ work with legacy versions as well (as long as you have numpy and matplotlib installed) but this is not supported.
+Officially Python 3.6+ is supported. It _should_ work with legacy versions as well (as long as you have numpy and matplotlib installed) but this is not supported.
+
+The reason for this is that matplotlib and numpy in their recent version do not support 3.5 anymore (if you have an older version of numpy/mpl already installed this should work find, not tested though)
