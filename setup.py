@@ -38,8 +38,8 @@ setup(
     long_description=long_description,
     install_requires=[],
     setup_requires=[
-        "matplotlib==3.0.3",
-        "numpy>=1.16.3"
+        "matplotlib",
+        "numpy"
     ],
     include_package_data=True,
 )
