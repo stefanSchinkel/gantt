@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/stefanSchinkel/gantt.svg?branch=master)](https://travis-ci.org/stefanSchinkel/gantt)
+[![Test](https://github.com/stefanSchinkel/gantt/actions/workflows/basic_test.yml/badge.svg)](https://github.com/stefanSchinkel/gantt/actions/workflows/basic_test.yml)
 
 ### README
 
@@ -13,7 +13,6 @@ Long story short: I don't know how to [excel](https://xkcd.com/559/).
 ### Basic usage
 
 ```python
-
 from gantt import Gantt
 g = Gantt('./sample.json')
 g.render()
@@ -31,7 +30,6 @@ All data is provided as a JSON structure that **has to contain**:
  - a **title** string (may contain TeX, escaped)
 
 ```json
-
 {
   "packages": [
     { "label" : "WP 1-1",
@@ -86,6 +84,4 @@ See [sample.json](./sample.json) for definition.
 
 ### Supported Versions
 
-Officially Python 3.6+ is supported. It _should_ work with legacy versions as well (as long as you have numpy and matplotlib installed) but this is not supported.
-
-The reason for this is that matplotlib and numpy in their recent version do not support 3.5 anymore (if you have an older version of numpy/mpl already installed this should work find, not tested though)
+Support is a bit much to say. The initial version was developed on 3.6 and worked just fine. With github-actions I can only test 3.7+ and this works fine (up to 3.12 currently). But basically, if you get numpy/matplotlib to run, all should be fine.
