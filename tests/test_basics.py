@@ -10,7 +10,8 @@ from os import path
 
 # this has to be done first, otherwise Gantt sets the agg
 import matplotlib
-matplotlib.use('agg')
+
+matplotlib.use("agg")
 
 # add to path for sure
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
@@ -33,12 +34,10 @@ class ExtendedTestCase(unittest.TestCase):
 
 
 class TestsPackage(ExtendedTestCase):
-    """Basic tests for package class
-    """
+    """Basic tests for package class"""
 
     def testValuePassing(self):
-        """ reject pointless dates
-        """
+        """reject pointless dates"""
         PKG = {"label": "A", "start": 0, "end": 2, "milestones": [1]}
         pkg = WP(PKG)
         self.assertEqual(pkg.label, "A")
@@ -47,15 +46,13 @@ class TestsPackage(ExtendedTestCase):
         self.assertEqual(pkg.milestones, [1])
 
     def testValError(self):
-        """ reject pointless dates
-        """
+        """reject pointless dates"""
         # start must be after begin
         PKG = {"label": "A", "start": 3, "end": 2}
         self.assertRaises(ValueError, WP, PKG)
 
     def testNegatives(self):
-        """ reject negative start/end
-        """
+        """reject negative start/end"""
         # start must be after begin
         PKG = {"label": "A", "start": -1, "end": 2}
         self.assertRaises(ValueError, WP, PKG)
@@ -64,45 +61,39 @@ class TestsPackage(ExtendedTestCase):
         PKG = {"label": "A", "start": 3, "end": -1}
         self.assertRaises(ValueError, WP, PKG)
 
-
     def testDefColor(self):
-        """ reject pointless dates
-        """
+        """reject pointless dates"""
         PKG = {"label": "A", "start": 0, "end": 2}
         pkg = WP(PKG)
         self.assertEqual(pkg.color, "#32AEE0")
 
 
 class TestsBasics(unittest.TestCase):
-    """ Tests to ensure the data ends up in the right places
-    """
+    """Tests to ensure the data ends up in the right places"""
+
     def testTitle(self):
-        """ Whats my name?
-        """
+        """Whats my name?"""
         g = Gantt(BASICS)
         self.assertEqual(g.title, "Basic Title")
 
     def testPackages(self):
-        """ Make sure the no. of packages is correct
-        """
+        """Make sure the no. of packages is correct"""
         g = Gantt(BASICS)
         self.assertEqual(len(g.packages), 4)
 
     def testTimings(self):
-        """ Make sure start/end is set properly
-        """
+        """Make sure start/end is set properly"""
         g = Gantt(BASICS)
         self.assertEqual(g.start, [0, 3, 3, 6])
         self.assertEqual(g.end, [2, 6, 5, 8])
 
     def testPlotTitle(self):
-        """ Make sure title is passed to plot
-        """
+        """Make sure title is passed to plot"""
         g = Gantt(BASICS)
         g.render()
         x = g.ax.get_title()
         self.assertEqual(x, "Basic Title")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
