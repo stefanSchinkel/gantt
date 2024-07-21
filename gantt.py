@@ -7,6 +7,7 @@ Gantt.py is a simple class to render Gantt charts, as commonly used in
 import os
 import json
 import platform
+from datetime import datetime
 from operator import sub
 
 import numpy as np
@@ -30,8 +31,8 @@ class Package:
     """Encapsulation of a work package
 
     A work package is instantiated from a dictionary. It **has to have**
-    a label, astart and an end. Optionally it may contain milestones
-    and a color
+    a label, a start, and an end. Optionally it may contain milestones
+    and a color.
 
     :arg str pkg: dictionary w/ package data name
     """
@@ -41,18 +42,16 @@ class Package:
         DEFCOLOR = "#32AEE0"
 
         self.label = pkg["label"]
-        self.start = pkg["start"]
-        self.end = pkg["end"]
+        self.start = self._parse_date(pkg["start"])
+        self.end = self._parse_date(pkg["end"])
 
-        if self.start < 0 or self.end < 0:
-            raise ValueError("Package cannot begin at t < 0")
         if self.start > self.end:
             raise ValueError("Cannot end before started")
 
         try:
-            self.milestones = pkg["milestones"]
+            self.milestones = [self._parse_date(m) for m in pkg["milestones"]]
         except KeyError:
-            pass
+            self.milestones = []
 
         try:
             self.color = pkg["color"]
@@ -63,6 +62,14 @@ class Package:
             self.legend = pkg["legend"]
         except KeyError:
             self.legend = None
+
+    @staticmethod
+    def _parse_date(date_str):
+        """Parse date string to datetime object"""
+        try:
+            return datetime.strptime(date_str, "%m-%Y")
+        except ValueError:
+            raise ValueError(f"Date format for {date_str} should be MM-YYYY")
 
 
 class Gantt:
@@ -90,7 +97,7 @@ class Gantt:
     def _loadData(self):
         """Load data from a JSON file that has to have the keys:
         packages & title. Packages is an array of objects with
-        a label, start and end property and optional milesstones
+        a label, start and end property and optional milestones
         and color specs.
         """
 
@@ -121,7 +128,7 @@ class Gantt:
         try:
             self.xticks = data["xticks"]
         except KeyError:
-            self.xticks = ""
+            self.xticks = []
 
     def _procData(self):
         """Process data to have all values needed for plotting"""
@@ -135,11 +142,14 @@ class Gantt:
             self.start[idx] = pkg.start
             self.end[idx] = pkg.end
 
-        self.durations = map(sub, self.end, self.start)
+        self.durations = [(e - s).days for s, e in zip(self.start, self.end)]
+        self.start = [s.toordinal() for s in self.start]
+        self.end = [e.toordinal() for e in self.end]
+
         self.yPos = np.arange(self.nPackages, 0, -1)
 
     def format(self):
-        """Format various aspect of the plot, such as labels,ticks, BBox
+        """Format various aspects of the plot, such as labels, ticks, BBox
         :todo: Refactor to use a settings object
         """
         # format axis
@@ -153,7 +163,7 @@ class Gantt:
         )
 
         # tighten axis but give a little room from bar height
-        plt.xlim(0, max(self.end))
+        plt.xlim(min(self.start), max(self.end))
         plt.ylim(0.5, self.nPackages + 0.5)
 
         # add title and package names
@@ -164,7 +174,7 @@ class Gantt:
             plt.xlabel(self.xlabel)
 
         if self.xticks:
-            plt.xticks(self.xticks, map(str, self.xticks))
+            plt.xticks([datetime.strptime(tick, "%m-%Y").toordinal() for tick in self.xticks], self.xticks)
 
     def add_milestones(self):
         """Add milestones to GANTT chart.
@@ -179,14 +189,14 @@ class Gantt:
         for key in self.milestones.keys():
             for value in self.milestones[key]:
                 y += [self.yPos[self.labels.index(key)]]
-                x += [value]
+                x += [value.toordinal()]
 
         plt.scatter(
             x, y, s=120, marker="D", color="yellow", edgecolor="black", zorder=3
         )
 
     def add_legend(self):
-        """Add a legend to the plot iff there are legend entries in
+        """Add a legend to the plot if there are legend entries in
         the package definitions
         """
 
@@ -209,13 +219,11 @@ class Gantt:
         self.ax.xaxis.grid(True)
 
         # assemble colors
-        colors = []
-        for pkg in self.packages:
-            colors.append(pkg.color)
+        colors = [pkg.color for pkg in self.packages]
 
         self.barlist = plt.barh(
             self.yPos,
-            list(self.durations),
+            self.durations,
             left=self.start,
             align="center",
             height=0.5,

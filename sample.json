@@ -1,62 +1,62 @@
 {
   "packages": [
     { "label" : "WP 1-1",
-      "start": 0,
-      "end": 2,
-      "milestones" : [2],
+      "start": "01-2024",
+      "end": "02-2024",
+      "milestones" : ["02-2024"],
       "legend": "worker one"
     },
     { "label" : "WP 1-2",
-      "start": 2,
-      "end": 4,
-      "milestones" : [3, 4]
+      "start": "02-2024",
+      "end": "04-2024",
+      "milestones" : ["03-2024", "04-2024"]
     },
     { "label" : "WP 2-1",
-      "start": 3,
-      "end": 5,
-      "milestones" : [5],
+      "start": "03-2024",
+      "end": "05-2024",
+      "milestones" : ["05-2024"],
       "color" : "orange",
       "legend": "worker two"
     },
     { "label" : "WP 2-2",
-      "start": 6,
-      "end": 8,
-      "milestones" : [8],
+      "start": "06-2024",
+      "end": "08-2024",
+      "milestones" : ["08-2024"],
       "color" : "orange"
     },
     { "label" : "WP 2-3",
-      "start": 7,
-      "end": 9,
-      "milestones" : [8],
+      "start": "07-2024",
+      "end": "9-2024",
+      "milestones" : ["8-2024"],
       "color" : "orange"
     },
     { "label" : "WP 2-4",
-      "start": 8,
-      "end": 9,
-      "milestones" : [9],
+      "start": "8-2024",
+      "end": "9-2024",
+      "milestones" : ["9-2024"],
       "color" : "orange"
     },
     { "label" : "WP 3-1",
-      "start": 2,
-      "end": 6,
-      "milestones" : [4,6],
+      "start": "2-2024",
+      "end": "6-2024",
+      "milestones" : ["4-2024","6-2024"],
       "color" : "lightgreen",
       "legend": "worker three"
     },
     { "label" : "WP 3-2",
-      "start": 4,
-      "end": 8,
-      "milestones" : [8],
+      "start": "4-2024",
+      "end": "8-2024",
+      "milestones" : ["8-2024"],
       "color" : "lightgreen"
     },
     { "label" : "WP 3-3",
-      "start": 6,
-      "end": 12,
+      "start": "6-2024",
+      "end": "12-2024",
       "color" : "lightgreen"
     }
   ],
 
 "title" : " Sample GANTT for \\textbf{myProject}",
-"xlabel" : "time (weeks)",
-"xticks" : [2,4,6,8,10,12]
+"xlabel" : "time (months)",
+"xticks" : ["2-2024","4-2024","6-2024","8-2024","10-2024","12-2024"]
 }
