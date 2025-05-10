@@ -37,9 +37,6 @@ setup(
     description="Simple gantt charts in python.",
     long_description=long_description,
     install_requires=[],
-    setup_requires=[
-        "matplotlib",
-        "numpy"
-    ],
+    setup_requires=["matplotlib", "numpy"],
     include_package_data=True,
 )
