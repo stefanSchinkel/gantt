@@ -84,4 +84,10 @@ See [sample.json](./sample.json) for definition.
 
 ### Supported Versions
 
-Support is a bit much to say. The initial version was developed on 3.6 and worked just fine. With github-actions I can only test 3.7+ and this works fine (up to 3.12 currently). But basically, if you get numpy/matplotlib to run, all should be fine.
+Support is a bit much to say. The initial version was developed on 3.6 and worked just fine. With github-actions I can only test ~~3.7+~~ 3.8+ and this works fine (up to 3.13 currently). But basically, if you get numpy/matplotlib to run, all should be fine.
+
+### TeX support
+If you have a decent TeX set up you won't face any issues I reckon. I don't use TeX all that often anymore and had some issues on a freshly setup Ubuntu 24.04 box. There where a few things missing. Here's what fixed it for me
+```sh
+sudo apt install cm-super dvipng
+```
