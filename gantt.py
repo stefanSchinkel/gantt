@@ -32,8 +32,6 @@ class Package:
     A work package is instantiated from a dictionary. It **has to have**
     a label, astart and an end. Optionally it may contain milestones
     and a color
-
-    :arg str pkg: dictionary w/ package data name
     """
 
     def __init__(self, pkg):
@@ -70,13 +68,9 @@ class Gantt:
     Class to render a simple Gantt chart, with optional milestones
     """
 
-    def __init__(self, dataFile):
-        """Instantiation
-
+    def __init__(self, dataFile: str):
+        """
         Create a new Gantt using the data in the file provided
-        or the sample data that came along with the script
-
-        :arg str dataFile: file holding Gantt data
         """
         self.dataFile = dataFile
 
@@ -121,7 +115,7 @@ class Gantt:
         try:
             self.xticks = data["xticks"]
         except KeyError:
-            self.xticks = ""
+            self.xticks = []
 
     def _procData(self):
         """Process data to have all values needed for plotting"""
@@ -164,7 +158,7 @@ class Gantt:
             plt.xlabel(self.xlabel)
 
         if self.xticks:
-            plt.xticks(self.xticks, map(str, self.xticks))
+            plt.xticks(self.xticks)
 
     def add_milestones(self):
         """Add milestones to GANTT chart.
@@ -243,10 +237,7 @@ class Gantt:
 
     @staticmethod
     def save(saveFile="img/GANTT.png"):
-        """Save the plot to a file. It defaults to `img/GANTT.png`.
-
-        :arg str saveFile: file to save to
-        """
+        """Save the plot to a file. It defaults to `img/GANTT.png`."""
         plt.savefig(saveFile, bbox_inches="tight")
 
 
