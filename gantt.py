@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 from matplotlib import rc
 
 # TeX support: on Linux assume TeX in /usr/bin, on OSX check for texlive
-if (platform.system() == "Darwin") and "tex" in os.getenv("PATH"):
+if (platform.system() == "Darwin") and "tex" in os.getenv("PATH", ""):
     LATEX = True
 elif (platform.system() == "Linux") and os.path.isfile("/usr/bin/latex"):
     LATEX = True
@@ -126,9 +126,9 @@ class Gantt:
     def _procData(self):
         """Process data to have all values needed for plotting"""
         # parameters for bars
-        self.nPackages = len(self.labels)
-        self.start = [None] * self.nPackages
-        self.end = [None] * self.nPackages
+        self.nPackages: int = len(self.labels)
+        self.start: list[int] = [0] * self.nPackages
+        self.end: list[int] = [0] * self.nPackages
 
         for pkg in self.packages:
             idx = self.labels.index(pkg.label)
@@ -182,7 +182,13 @@ class Gantt:
                 x += [value]
 
         plt.scatter(
-            x, y, s=120, marker="D", color="yellow", edgecolor="black", zorder=3
+            x,
+            y,
+            s=120,
+            marker="D",
+            color="yellow",
+            edgecolor="black",
+            zorder=3,
         )
 
     def add_legend(self):
@@ -198,7 +204,9 @@ class Gantt:
                 self.barlist[idx].set_label(pkg.legend)
 
         if cnt > 0:
-            self.legend = self.ax.legend(shadow=False, ncol=3, fontsize="medium")
+            self.legend = self.ax.legend(
+                shadow=False, ncol=3, fontsize="medium"
+            )
 
     def render(self):
         """Prepare data for plotting"""
